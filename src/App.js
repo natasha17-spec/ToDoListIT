@@ -30,8 +30,6 @@ class App extends React.Component {
             priority: "  low"
         };
         
-
-        dfgdf
         this.newTaskTitleRef.current.value = "";
 
         let newTasks = [...this.state.tasks, newTask];
