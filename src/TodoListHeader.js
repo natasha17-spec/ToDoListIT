@@ -15,7 +15,6 @@ class TodoListHeader extends React.Component {
     
     render = () => {
         return (
-            
                 <div>
                     <h3 >What to Learn</h3>
                         <div >
@@ -23,8 +22,7 @@ class TodoListHeader extends React.Component {
                                 <button onClick={ this.onAddTaskClick}>Add</button>
                                 </div>
                             </div>
-                        
-        )}};
+                    )}};
 
 
 export default TodoListHeader;

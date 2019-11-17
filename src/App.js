@@ -29,8 +29,7 @@ class App extends React.Component {
             priority: "  -low"
         };
 
-        // this.newTaskTitleRef.current.value = "";
-
+       
         let newTasks = [...this.state.tasks, newTask];
         this.setState({
             tasks: newTasks
@@ -43,22 +42,29 @@ class App extends React.Component {
         })
     }
 
+    changeStatus = (task, isDone)=>{
+        let newTasks= this.state.tasks.map(t => {
+            if(t !==task){
+                return t;
+            } else {
+                return {...t, isDone: isDone}
+            }
+            });
+     
+   this.setState({tasks:newTasks
+})
+    }
+    
+
     render = () => {
         return (
             <div className="App">
-                    {/*<div className="todoList-header">*/}
+                   
                         <div className="todoList">
-                           
-                        <TodoListHeader addTask={this.addTask}/>
-                            {/* <div>
-                                <h3 >What to Learn</h3>
-                                <div >
-                                    <input ref={this.newTaskTitleRef} type='text' placeholder='New task name '/>
-                                    <button onClick={ this.onAddTaskClick}>Add</button>
-                                </div>
-                            </div>
-                        </div> */}
-                        <TodoListTasks tasks={this.state.tasks.filter (t => {
+                          <TodoListHeader addTask={this.addTask}/>
+                        <TodoListTasks 
+                        changeStatus={this.changeStatus}
+                        tasks={this.state.tasks.filter (t => {
                             if (this.state.filterValue==='All') {
                                 return true;
                             }
