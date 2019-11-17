@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="00b80363-5a46-4d6c-b98f-e6a6e6b97a55" name="Default Changelist" comment="">
+    <list default="true" id="00b80363-5a46-4d6c-b98f-e6a6e6b97a55" name="Default Changelist" comment="to_annihilate_inpute">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,7 +19,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sreda/05-todolist" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -75,7 +76,10 @@
       <workItem from="1572966650589" duration="8825000" />
       <workItem from="1572977664382" duration="505000" />
       <workItem from="1573224682466" duration="65000" />
-      <workItem from="1573571559112" duration="9111000" />
+      <workItem from="1573571559112" duration="9318000" />
+      <workItem from="1573581209882" duration="91000" />
+      <workItem from="1573699237646" duration="38000" />
+      <workItem from="1573974613002" duration="1051000" />
     </task>
     <task id="LOCAL-00001" summary="addcreate">
       <created>1573579332018</created>
@@ -91,7 +95,21 @@
       <option name="project" value="LOCAL" />
       <updated>1573580649720</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="занулить_input12">
+      <created>1573580746959</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1573580746959</updated>
+    </task>
+    <task id="LOCAL-00004" summary="to_annihilate_inpute">
+      <created>1573580846701</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1573580846701</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,7 +120,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -111,6 +131,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="addcreate" />
     <MESSAGE value="занулить_input" />
-    <option name="LAST_COMMIT_MESSAGE" value="занулить_input" />
+    <MESSAGE value="занулить_input12" />
+    <MESSAGE value="to_annihilate_inpute" />
+    <option name="LAST_COMMIT_MESSAGE" value="to_annihilate_inpute" />
   </component>
 </project>

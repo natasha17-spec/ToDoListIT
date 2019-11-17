@@ -19,7 +19,7 @@ class App extends React.Component {
         {title: 'DOM', isDone: true, priority: '-high'},
         {title: 'React', isDone: false, priority: '-high'},
     ],
-    filterValue: "Completed"
+    filterValue: 'ALL'
 };
 
     onAddTaskClick = ()=>{
@@ -27,9 +27,9 @@ class App extends React.Component {
         let newTask = {
             title: newText,
             isDone: false,
-            priority: "  low"
+            priority: "  -low"
         };
-        
+
         this.newTaskTitleRef.current.value = "";
 
         let newTasks = [...this.state.tasks, newTask];
@@ -37,6 +37,13 @@ class App extends React.Component {
             tasks: newTasks
         });
     };
+
+    changeFilter = (newFilterValue) => {
+        this.setState({
+            filterValue:newFilterValue
+        })
+    }
+
     render = () => {
         return (
             <div className="App">
@@ -52,7 +59,7 @@ class App extends React.Component {
                             </div>
                         </div>
                         <TodoListTasks tasks={this.state.tasks} />
-                        <TodoListFooter filterValue={this.state.filterValue}/>
+                        <TodoListFooter changeFilter={this.changeFilter} filterValue={this.state.filterValue}/>
                     </div>
         );
     }
