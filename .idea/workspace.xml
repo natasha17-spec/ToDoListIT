@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00b80363-5a46-4d6c-b98f-e6a6e6b97a55" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ToDoListIT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TodoListHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/TodoListHeader.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,11 +17,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1TCah1hqKCDHlMKMez4QjJb7dg5" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sreda" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -79,7 +84,8 @@
       <workItem from="1573581209882" duration="91000" />
       <workItem from="1573699237646" duration="38000" />
       <workItem from="1573974613002" duration="1051000" />
-      <workItem from="1573983812712" duration="740000" />
+      <workItem from="1573983812712" duration="1424000" />
+      <workItem from="1573989768048" duration="1165000" />
     </task>
     <task id="LOCAL-00001" summary="addcreate">
       <created>1573579332018</created>
@@ -116,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573983879885</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="filter_tasks">
+      <created>1573985433725</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1573985433725</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +154,7 @@
     <MESSAGE value="занулить_input12" />
     <MESSAGE value="to_annihilate_inpute" />
     <MESSAGE value="changeFilter" />
-    <option name="LAST_COMMIT_MESSAGE" value="changeFilter" />
+    <MESSAGE value="filter_tasks" />
+    <option name="LAST_COMMIT_MESSAGE" value="filter_tasks" />
   </component>
 </project>

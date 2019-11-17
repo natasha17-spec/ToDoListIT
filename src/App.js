@@ -3,6 +3,7 @@ import './App.css';
 import TodoListHeader from "./TodoListHeader";
 import TodoListTasks from "./TodoListTasks";
 import TodoListFooter from "./TodoListFooter";
+debugger;
 
 class App extends React.Component {
     constructor(props) {//чтобы запушить новую таску, мы в контрукторе создаем метод setTimeout
@@ -21,16 +22,14 @@ class App extends React.Component {
     ],
     filterValue: 'ALL'
 };
-
-    onAddTaskClick = ()=>{
-        let newText = this.newTaskTitleRef.current.value;
-        let newTask = {
-            title: newText,
+    addTask = (newTitle)=>{
+            let newTask = {
+            title: newTitle,
             isDone: false,
             priority: "  -low"
         };
 
-        this.newTaskTitleRef.current.value = "";
+        // this.newTaskTitleRef.current.value = "";
 
         let newTasks = [...this.state.tasks, newTask];
         this.setState({
@@ -49,15 +48,16 @@ class App extends React.Component {
             <div className="App">
                     {/*<div className="todoList-header">*/}
                         <div className="todoList">
-                        {/*<TodoListHeader/>*/}
-                            <div>
+                           
+                        <TodoListHeader addTask={this.addTask}/>
+                            {/* <div>
                                 <h3 >What to Learn</h3>
                                 <div >
                                     <input ref={this.newTaskTitleRef} type='text' placeholder='New task name '/>
                                     <button onClick={ this.onAddTaskClick}>Add</button>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                         <TodoListTasks tasks={this.state.tasks.filter (t => {
                             if (this.state.filterValue==='All') {
                                 return true;
@@ -70,6 +70,8 @@ class App extends React.Component {
                                 }})} />
                         <TodoListFooter changeFilter={this.changeFilter} filterValue={this.state.filterValue}/>
                     </div>
+                    </div>
+
         );
     }
 }
