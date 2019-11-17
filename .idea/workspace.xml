@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="00b80363-5a46-4d6c-b98f-e6a6e6b97a55" name="Default Changelist" comment="to_annihilate_inpute">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="00b80363-5a46-4d6c-b98f-e6a6e6b97a55" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,6 +79,7 @@
       <workItem from="1573581209882" duration="91000" />
       <workItem from="1573699237646" duration="38000" />
       <workItem from="1573974613002" duration="1051000" />
+      <workItem from="1573983812712" duration="740000" />
     </task>
     <task id="LOCAL-00001" summary="addcreate">
       <created>1573579332018</created>
@@ -109,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573580846701</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="changeFilter">
+      <created>1573983879885</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1573983879885</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +140,7 @@
     <MESSAGE value="занулить_input" />
     <MESSAGE value="занулить_input12" />
     <MESSAGE value="to_annihilate_inpute" />
-    <option name="LAST_COMMIT_MESSAGE" value="to_annihilate_inpute" />
+    <MESSAGE value="changeFilter" />
+    <option name="LAST_COMMIT_MESSAGE" value="changeFilter" />
   </component>
 </project>
