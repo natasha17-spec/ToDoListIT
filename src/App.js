@@ -10,7 +10,6 @@ class App extends React.Component {
         super(props);
         this.newTaskTitleRef = React.createRef()
          }
-
    state = {// весь массив укутываем в стейт, для того, чтобы потом в него запушить новую таску
     tasks: [
         {title: 'JS', isDone: true, priority: "-high"},
@@ -28,14 +27,11 @@ class App extends React.Component {
             isDone: false,
             priority: "  -low"
         };
-
-       
         let newTasks = [...this.state.tasks, newTask];
         this.setState({
             tasks: newTasks
         });
     };
-
     changeFilter = (newFilterValue) => {
         this.setState({
             filterValue:newFilterValue
@@ -55,32 +51,31 @@ class App extends React.Component {
 })
     }
     
-
     render = () => {
         return (
             <div className="App">
-                   
-                        <div className="todoList">
+                <div className="todoList">
                           <TodoListHeader addTask={this.addTask}/>
                         <TodoListTasks 
                         changeStatus={this.changeStatus}
-                        tasks={this.state.tasks.filter (t => {
-                            if (this.state.filterValue==='All') {
-                                return true;
-                            }
-                            if (this.state.filterValue==='Active') {
+                        tasks={this.state.tasks.filter (t => {                    
+                       
+                        switch (this.state.filterValue) {
+                            case 'All': 
+                            return true;
+                            case 'Active':
                                 return !t.isDone;
-                            }
-                            if (this.state.filterValue==='Completed') {
-                                return t.isDone;
-                                }})} />
+                                case 'Completed':
+                                    return t.isDone;
+                                    default:
+                                           return true
+                                }})}                                                           
+                                                                 />
                         <TodoListFooter changeFilter={this.changeFilter} filterValue={this.state.filterValue}/>
                     </div>
                     </div>
-
         );
     }
 }
-
 export default App;
 
