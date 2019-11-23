@@ -1,22 +1,54 @@
 .App {
-  display: flex;
-  justify-content: center;
+  border: 2px groove #BC8F8F;
+  padding: 5px;
+  margin-bottom: 7px;
+  background-color:#FFEFD5 ;
+  border-radius: 15px;
+}
+
+.todoList {
+  width: 500px;
   margin: 0 auto;
- flex-direction: column;
+
+ }
+.center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
   align-items: center;
 }
 
 
 .todoList > div {
   padding: 10px;
+
 }
 
 .todoList-task {
-  margin: 0px 0px 2px 0px;
+  border-radius: 5px;
+  margin: 5px 0px 5px 0px;
 }
-.filter-active{
-  background-color: rebeccapurple;
+.filter-active {
+  background: -moz-linear-gradient(#7B68EE, #7B68EE);
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#7B68EE), to(#7B68EE));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7B68EE', endColorstr='#7B68EE');
+  padding: 3px 7px;
+  color: #444444;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #666;
 }
-.todoList-footer{
-  margin: 20px 0px 0px 0px;
+.button {
+  background: -moz-linear-gradient(#00BBD6, #EBFFFF);
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#00BBD6), to(#EBFFFF));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
+  padding: 3px 7px;
+  color: #333;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #666;
+
 }

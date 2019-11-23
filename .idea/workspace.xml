@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="00b80363-5a46-4d6c-b98f-e6a6e6b97a55" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoListIT" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoListIT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoListIT" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TodoListTask.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/TodoListTask.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TodoListTasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/TodoListTasks.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +31,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -95,6 +94,10 @@
       <workItem from="1574183442281" duration="688000" />
       <workItem from="1574269143070" duration="1127000" />
       <workItem from="1574270342672" duration="312000" />
+      <workItem from="1574270694828" duration="831000" />
+      <workItem from="1574271705691" duration="217000" />
+      <workItem from="1574271993182" duration="5932000" />
+      <workItem from="1574440619407" duration="3939000" />
     </task>
     <task id="LOCAL-00001" summary="addcreate">
       <created>1573579332018</created>
@@ -159,7 +162,21 @@
       <option name="project" value="LOCAL" />
       <updated>1574010040623</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="updateProject4lesson">
+      <created>1574270759687</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1574270759687</updated>
+    </task>
+    <task id="LOCAL-00011" summary="updateProject4lesson">
+      <created>1574271023622</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1574271023622</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,7 +235,8 @@
     <MESSAGE value="filter_tasks" />
     <MESSAGE value="onClickToDoListHeader" />
     <MESSAGE value="changeCheckbox" />
-    <option name="LAST_COMMIT_MESSAGE" value="changeCheckbox" />
+    <MESSAGE value="updateProject4lesson" />
+    <option name="LAST_COMMIT_MESSAGE" value="updateProject4lesson" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

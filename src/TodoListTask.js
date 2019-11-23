@@ -2,10 +2,8 @@ import React from 'react';
 import './App.css';
 
 class TodoListTask extends React.Component {
-    onIsDoneChanged = (e) => {
-
-        this.props.changeStatus(this.props.task, e.currentTarget.checked);
-
+    onIsDoneChanged =(e) => {
+        this.props.changeStatus(this.props.task,e.currentTarget.checked);
     };
     render = () => {
         return (
@@ -21,4 +19,3 @@ class TodoListTask extends React.Component {
 }
 
 export default TodoListTask;
-
