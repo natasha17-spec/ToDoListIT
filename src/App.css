@@ -58,3 +58,18 @@
 .todoList-task.done {
   opacity: 0.5;
 }
+.hideShow  {
+  margin-top: 10px;
+  font-weight: bold;
+  background-color: #ccc;
+  color: brown;
+  padding: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  border: 2px solid brown;
+  border-radius: 5px;
+  display: block;
+  width: 150px;
+  text-align: center;
+  cursor: pointer;;
+}

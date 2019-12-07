@@ -25,8 +25,8 @@ let classForActive = this.props.filterValue==='Active'? "filter-active": 'button
                                 <button onClick={this.onCompletedFilterClick} className={classForCompleted}>Completed</button>
                                 <button onClick={this.onActiveFilterClick} className={classForActive}>Active</button>
                         </div>}
-                        {!this.state.isHidden && <span onClick={this.onHideFiltersClick}>hide</span>}
-                        {this.state.isHidden && <span onClick={this.onShowFiltersClick}>show</span>}
+                        {!this.state.isHidden && <span className='hideShow' onClick={this.onHideFiltersClick}>hide</span>}
+                        {this.state.isHidden && <span className='hideShow' onClick={this.onShowFiltersClick}>show</span>}
                     </div>
                 </div>
             </div>
