@@ -38,7 +38,11 @@ import TodoListTasks from "./TodoListTasks";
                 if(t !==task){
                     return t;
                 } else {
-                    return {...t, isDone:isDone}}})};
+                    return {...t, isDone:isDone}}});
+            this.setState({
+                tasks: newTasks
+            })
+        };
 
         changeFilter = (newFilterValue) => {
             this.setState({

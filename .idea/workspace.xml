@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00b80363-5a46-4d6c-b98f-e6a6e6b97a55" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/name1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/desktop.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoListIT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TodoListTasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/TodoListTasks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TodoListHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/TodoListHeader.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,7 +26,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ToDoList2/TodoList" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -98,6 +101,8 @@
       <workItem from="1574271705691" duration="217000" />
       <workItem from="1574271993182" duration="5932000" />
       <workItem from="1574440619407" duration="3939000" />
+      <workItem from="1574505545846" duration="860000" />
+      <workItem from="1575385252175" duration="301000" />
     </task>
     <task id="LOCAL-00001" summary="addcreate">
       <created>1573579332018</created>
@@ -176,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574271023622</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="addCSS,endtasks">
+      <created>1574505625099</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1574505625099</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,6 +239,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/ToDoListIT" />
+    </ignored-roots>
     <MESSAGE value="addcreate" />
     <MESSAGE value="занулить_input" />
     <MESSAGE value="занулить_input12" />
@@ -236,7 +251,8 @@
     <MESSAGE value="onClickToDoListHeader" />
     <MESSAGE value="changeCheckbox" />
     <MESSAGE value="updateProject4lesson" />
-    <option name="LAST_COMMIT_MESSAGE" value="updateProject4lesson" />
+    <MESSAGE value="addCSS,endtasks" />
+    <option name="LAST_COMMIT_MESSAGE" value="addCSS,endtasks" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
