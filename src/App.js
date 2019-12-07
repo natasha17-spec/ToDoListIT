@@ -10,20 +10,21 @@ import TodoListTasks from "./TodoListTasks";
             super(props);
             this.newTaskTitleRef = React.createRef()
         }
-
+        newTaskID = 6;
            state= {
                tasks: [
-                   {title: 'JS', isDone: true, priority: "-low"},
-                   {title: 'React', isDone: false, priority: "-low"},
-                   {title: 'DOM', isDone: true, priority: "-low"},
-                   {title: 'Redux', isDone: false, priority: "-low"},
-                   {title: 'HTML', isDone: true, priority: "-low"},
-                   {title: 'CSS', isDone: false, priority: "-low"},
+                   {id: 0,title: 'JS', isDone: true, priority: "-low"},
+                   {id: 1,title: 'React', isDone: false, priority: "-low"},
+                   {id: 2,title: 'DOM', isDone: true, priority: "-low"},
+                   {id: 3,title: 'Redux', isDone: false, priority: "-low"},
+                   {id: 4,title: 'HTML', isDone: true, priority: "-low"},
+                   {id: 5,title: 'CSS', isDone: false, priority: "-low"},
                ],
-               filterValue:'All'
-             };
-        addTask=(newTitle)=>{
+               filterValue:'All' };
+
+           addTask=(newTitle)=>{        //момент создания новой таски
             let newTask={
+                id: this.newTaskID,    //добавляем объект id
                 title:newTitle,
                 isDone: false,
                 priority: ' -middle'
@@ -33,9 +34,9 @@ import TodoListTasks from "./TodoListTasks";
                 tasks: newTasks
             })
         };
-        changeStatus=(task,isDone)=>{
+        changeStatus=(taskID,isDone)=>{
             let newTasks=this.state.tasks.map(t=>{
-                if(t !==task){
+                if(t !==taskID){
                     return t;
                 } else {
                     return {...t, isDone:isDone}}});

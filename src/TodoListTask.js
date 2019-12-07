@@ -8,7 +8,7 @@ class TodoListTask extends React.Component {
     }
 
     onIsDoneChanged =(e) => {
-        this.props.changeStatus(this.props.task,e.currentTarget.checked);
+        this.props.changeStatus(this.props.task.id,e.currentTarget.checked);
     };
     render = () => {
         let classForTask = this.props.task.isDone
@@ -19,9 +19,12 @@ class TodoListTask extends React.Component {
                        type="checkbox"
                        checked={this.props.task.isDone}
 
+
                 />
+                <span>{this.props.task.id}</span>-
                 <span>{this.props.task.title}</span>
                 <span>{this.props.task.priority}</span>
+
             </div>
         );
     }
