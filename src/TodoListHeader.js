@@ -8,28 +8,28 @@ class TodoListHeader extends  React.Component {
             super(props);
             this.newTaskTitleRef = React.createRef();
         }
-    state={
-        error:false,
-        title:''
+
+    state = {
+        error: false,
+        title: ''
     };
-        onAddTaskClick=()=>{
-            let newTitle = this.state.title;
-            this.setState({title:''}) ;
-            if(newTitle.trim()===''){
-                this.setState({error: true})
-            } else {
-                this.setState({error: false});
-                this.props.addTask(newTitle);
-            }
+    onAddTaskClick = () => {
+        let newTitle = this.state.title;
+        this.setState({title: ''});
+        if (newTitle.trim() === '') {
+            this.setState({error: true})
+        } else {
+            this.setState({error: false});
+            this.props.addTask(newTitle);
+        }
+    };
 
-        };
-
-        onTitleChanged = (e) => {
-            this.setState({
-                error:false,
-                title:e.currentTarget.value
-            })
-        };
+    onTitleChanged = (e) => {
+        this.setState({
+            error: false,
+            title: e.currentTarget.value
+        })
+    };
     onKeyPress = (e) =>{
         if(e.key === 'Enter'){
             this.onAddTaskClick()

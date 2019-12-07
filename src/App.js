@@ -21,7 +21,7 @@ import TodoListTasks from "./TodoListTasks";
                    {id: 4,title: 'HTML', isDone: true, priority: "-low"},
                    {id: 5,title: 'CSS', isDone: false, priority: "-low"},
                ],
-               filterValue:'All' }; /*1*/
+               filterValue:'All' };
 
 /*2*/        addTask = (newTitle) => {        //момент создания новой таски
             let newTask = {
@@ -30,6 +30,7 @@ import TodoListTasks from "./TodoListTasks";
                 isDone: false,
                 priority: ' -middle'
             };
+            this.newTaskID++;
             let newTasks = [...this.state.tasks, newTask];
             this.setState({
                 tasks: newTasks
@@ -43,22 +44,16 @@ import TodoListTasks from "./TodoListTasks";
         };
 
 /*4*/        changeStatus = (taskID, isDone) => {
-            let newTasks = this.state.tasks.map(t => {
-                if (t.id === taskID) {
-                    return {...t, isDone: isDone};
-                } else {
-                    return t;
-                }
-            });
-            this.setState({
-                tasks: newTasks
-            })
-        };
+            this.changeTask(taskID, {isDone:isDone})
+            };
 
-/*5*/        changeTitle=(taskId, newTitle)=>{
+/*5*/        changeTitle=(taskID, newTitle)=>{
+             this.changeTask(taskID, {title:newTitle})
+             };
+/*6*/        changeTask=(taskID, obj)=>{
             let newTasks = this.state.tasks.map(t=>{
-                if (t.id === taskId) {
-                    return {...t, title:newTitle}
+                if (t.id === taskID) {
+                    return {...t,...obj}
                 }else{
                     return t;
                 }
@@ -66,11 +61,11 @@ import TodoListTasks from "./TodoListTasks";
             this.setState({
                 tasks:newTasks
             })
-        };
+        }
+
 
 
         render = () => {
-
             return (
                 <div className='App'>
                     <div className='center'>
@@ -89,8 +84,6 @@ import TodoListTasks from "./TodoListTasks";
                                     default:
                                         return true
                                 }})}/>
-
-
                         <TodoListFooter filterValue={this.state.filterValue} changeFilter={this.changeFilter} />
                     </div>
                 </div>
