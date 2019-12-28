@@ -6,35 +6,63 @@ import TodoListTasks from "./TodoListTasks";
 
 
     class App extends React.Component{
-        constructor(props) {//чтобы запушить новую таску, мы в контрукторе создаем метод setTimeout
-            super(props);
-            this.newTaskTitleRef = React.createRef()
-        }
-        newTaskID = 6;
+            constructor(props) {//чтобы запушить новую таску, мы в контрукторе создаем метод setTimeout
+                super(props);
+                this.newTaskTitleRef = React.createRef()
+            }
+
+            nextTaskID=0;
+            componentDidMount() {
+                this.restoreState();
+            }
+
+            saveState = (key, value) => {
+                let stateAsString = JSON.stringify(this.state);
+                localStorage.setItem("our-state", stateAsString);
+            };
+
+            restoreState = () =>{
+                let state = {
+                    tasks: [],
+                    filterValue: 'All'
+                };
+                let stateAsString = localStorage.getItem("our-state");
+                if (stateAsString != null) {
+                    state = JSON.parse(stateAsString);
+                }
+                this.setState(state, () =>{
+                    this.state.tasks.forEach((task)=>{
+                        if(task.id >= this.nextTaskID){
+                            this.nextTaskID = task.id + 1
+                        }
+                    })
+                });
+            };
 
 /*1*/        state= {
                tasks: [
-                   {id: 0,title: 'JS', isDone: true, priority: "-low"},
-                   {id: 1,title: 'React', isDone: false, priority: "-low"},
-                   {id: 2,title: 'DOM', isDone: true, priority: "-low"},
-                   {id: 3,title: 'Redux', isDone: false, priority: "-low"},
-                   {id: 4,title: 'HTML', isDone: true, priority: "-low"},
-                   {id: 5,title: 'CSS', isDone: false, priority: "-low"},
+                   // {id: 0,title: 'JS', isDone: true, priority: "-low"},
+                   // {id: 1,title: 'React', isDone: false, priority: "-low"},
+                   // {id: 2,title: 'DOM', isDone: true, priority: "-low"},
+                   // {id: 3,title: 'Redux', isDone: false, priority: "-low"},
+                   // {id: 4,title: 'HTML', isDone: true, priority: "-low"},
+                   // {id: 5,title: 'CSS', isDone: false, priority: "-low"},
                ],
                filterValue:'All' };
 
 /*2*/        addTask = (newTitle) => {        //момент создания новой таски
             let newTask = {
-                id: this.newTaskID,    //добавляем объект id
+                id: this.nextTaskID,    //добавляем объект id
                 title: newTitle,
                 isDone: false,
                 priority: ' -middle'
             };
-            this.newTaskID++;
+            this.nextTaskID++;
             let newTasks = [...this.state.tasks, newTask];
             this.setState({
                 tasks: newTasks
-            })
+            }, ()=>{this.saveState();})
+           ;
         };
 
 /*3*/        changeFilter = (newFilterValue) => {
@@ -50,6 +78,7 @@ import TodoListTasks from "./TodoListTasks";
 /*5*/        changeTitle=(taskID, newTitle)=>{
              this.changeTask(taskID, {title:newTitle})
              };
+
 /*6*/        changeTask=(taskID, obj)=>{
             let newTasks = this.state.tasks.map(t=>{
                 if (t.id === taskID) {
@@ -61,7 +90,7 @@ import TodoListTasks from "./TodoListTasks";
             this.setState({
                 tasks:newTasks
             })
-        }
+        };
 
 
 
