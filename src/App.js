@@ -1,119 +1,30 @@
 import React from 'react';
 import './App.css';
-import TodoListHeader from "./TodoListHeader";
-import TodoListFooter from "./TodoListFooter";
-import TodoListTasks from "./TodoListTasks";
+import TodoList from "./TodoList";
 
 
     class App extends React.Component{
-            constructor(props) {//чтобы запушить новую таску, мы в контрукторе создаем метод setTimeout
-                super(props);
-                this.newTaskTitleRef = React.createRef()
-            }
-
-            nextTaskID=0;
-            componentDidMount() {
-                this.restoreState();
-            }
-
-            saveState = (key, value) => {
-                let stateAsString = JSON.stringify(this.state);
-                localStorage.setItem("our-state", stateAsString);
-            };
-
-            restoreState = () =>{
-                let state = {
-                    tasks: [],
-                    filterValue: 'All'
-                };
-                let stateAsString = localStorage.getItem("our-state");
-                if (stateAsString != null) {
-                    state = JSON.parse(stateAsString);
-                }
-                this.setState(state, () =>{
-                    this.state.tasks.forEach((task)=>{
-                        if(task.id >= this.nextTaskID){
-                            this.nextTaskID = task.id + 1
-                        }
-                    })
-                });
-            };
-
-/*1*/        state= {
-               tasks: [
-                   // {id: 0,title: 'JS', isDone: true, priority: "-low"},
-                   // {id: 1,title: 'React', isDone: false, priority: "-low"},
-                   // {id: 2,title: 'DOM', isDone: true, priority: "-low"},
-                   // {id: 3,title: 'Redux', isDone: false, priority: "-low"},
-                   // {id: 4,title: 'HTML', isDone: true, priority: "-low"},
-                   // {id: 5,title: 'CSS', isDone: false, priority: "-low"},
-               ],
-               filterValue:'All' };
-
-/*2*/        addTask = (newTitle) => {        //момент создания новой таски
-            let newTask = {
-                id: this.nextTaskID,    //добавляем объект id
-                title: newTitle,
-                isDone: false,
-                priority: ' -middle'
-            };
-            this.nextTaskID++;
-            let newTasks = [...this.state.tasks, newTask];
-            this.setState({
-                tasks: newTasks
-            }, ()=>{this.saveState();})
-           ;
+//есть объект с массивом и это массив однотипных объектов, которые будут описывать наши тутулисты,
+        //у них будет свойство id  и свойство title
+        state= {
+            todoLists:[
+                {id:1, title:'What to learn'},
+                {id:2, title:'Week tasks'},
+                {id:3, title:'Year tasks'}
+            ]
         };
-
-/*3*/        changeFilter = (newFilterValue) => {
-            this.setState({
-                filterValue: newFilterValue
-            })
-        };
-
-/*4*/        changeStatus = (taskID, isDone) => {
-            this.changeTask(taskID, {isDone:isDone})
-            };
-
-/*5*/        changeTitle=(taskID, newTitle)=>{
-             this.changeTask(taskID, {title:newTitle})
-             };
-
-/*6*/        changeTask=(taskID, obj)=>{
-            let newTasks = this.state.tasks.map(t=>{
-                if (t.id === taskID) {
-                    return {...t,...obj}
-                }else{
-                    return t;
-                }
-            });
-            this.setState({
-                tasks:newTasks
-            })
-        };
-
-
-
         render = () => {
+
+            const todoLists = this.state.todoLists.map(
+                tl=><TodoList id= {tl.id} title={tl.title}/> );
+
             return (
-                <div className='App'>
-                    <div className='center'>
-                        <TodoListHeader addTask={this.addTask}/>
-                        <TodoListTasks
-                            changeStatus={this.changeStatus}
-                            changeTitle={this.changeTitle}
-                            tasks={this.state.tasks.filter (t => {
-                                switch (this.state.filterValue) {
-                                    case 'All':
-                                        return true;
-                                    case 'Active':
-                                        return !t.isDone;
-                                    case 'Completed':
-                                        return t.isDone;
-                                    default:
-                                        return true
-                                }})}/>
-                        <TodoListFooter filterValue={this.state.filterValue} changeFilter={this.changeFilter} />
+                <div>
+                    <div className='App'>
+                        {todoLists}
+                        {/*<TodoList id={1}/>*/}
+                        {/*<TodoList id={2}/>*/}
+                        {/*<TodoList id={3}/>*/}
                     </div>
                 </div>
             );
