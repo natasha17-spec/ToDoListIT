@@ -16,12 +16,9 @@ import TodoListTitle from "./TodoListTitle";
             this.restoreState();
         }
 
-        saveState = () =>{ // в это хранилиле сохраняется
-            //переводим объект в строку
+        saveState = () =>{
             let stateAsString = JSON.stringify(this.state);
-            //сохраняем нашу строку в Local Storage под ключаом 'our-state'
             localStorage.setItem('our-state'+this.props.id,stateAsString);
-            //устанавливаем либо пустой либо восстановленный state
         };
 
         restoreState = () => {

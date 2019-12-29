@@ -14,9 +14,50 @@ import AddNewItemForm from "./AddNewItemForm";
                 {id:3, title:'Year tasks'}
             ]
         };
-        addTodolist = (title)=>{
-            alert(title);
+
+        nextTodoListId = 0;
+
+        componentDidMount() {
+            this.restoreState();
+        }
+
+        saveState = () =>{
+            let stateAsString = JSON.stringify(this.state);
+            localStorage.setItem('todoLists',stateAsString);
         };
+
+    restoreState = () => {
+        let state = {
+            todoLists: [],
+        };
+        let stateAsString = localStorage.getItem('todoLists');
+        if (stateAsString != null) {
+            state = JSON.parse(stateAsString);
+        }
+        this.setState(state, () => {
+            this.state.todoLists.forEach((task) => {
+                if (task.id >= this.nextTodoListId) {
+                    this.nextTodoListId = task.id + 1
+                }
+            })
+        });
+    };
+
+
+        addTodolist = (title)=>{
+            let newTodoList = {
+                id:this.nextTodoListId,
+                title: title
+            };
+            this.nextTodoListId++;
+          let newTodoLists=[...this.state.todoLists, newTodoList];
+            this.setState({
+                todoLists:newTodoLists
+            }, ()=>{this.saveState()});
+
+        };
+
+
         render = () => {
 
             const todoLists = this.state.todoLists.map(
