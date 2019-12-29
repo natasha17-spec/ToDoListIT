@@ -12,14 +12,14 @@ class AddNewItemForm extends  React.Component {
         error:false,
         title:''
     };
-        onAddTaskClick=()=>{
+        onAddItemClick=()=>{
             let newTitle = this.state.title;
             this.setState({title:''}) ;
             if(newTitle.trim()===''){
                 this.setState({error: true})
             } else {
                 this.setState({error: false});
-                this.props.addTask(newTitle);
+                this.props.addItem(newTitle);
             }
         };
 
@@ -31,26 +31,24 @@ class AddNewItemForm extends  React.Component {
         };
     onKeyPress = (e) =>{
         if(e.key === 'Enter'){
-            this.onAddTaskClick()
+            this.onAddItemClick()
         }
     };
         render = () => {
             let classForInput = this.state.error ? 'error':'';
 
         return (
-
              <div>
-
                  <input
                                type='text'
-                               placeholder='New task'
+                               placeholder='New item name'
                                className={classForInput}
                                onChange={this.onTitleChanged}
                                onKeyPress={this.onKeyPress}
                                value={this.state.title}
                                // ref={this.newTaskTitleRef}
                         />
-                        <button onClick={this.onAddTaskClick} className='button'>Add</button>
+                        <button onClick={this.onAddItemClick} className='button'>Add</button>
                     </div>
 
         );
