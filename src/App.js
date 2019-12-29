@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import TodoList from "./TodoList";
+import AddNewItemForm from "./AddNewItemForm";
 
 
     class App extends React.Component{
@@ -13,6 +14,9 @@ import TodoList from "./TodoList";
                 {id:3, title:'Year tasks'}
             ]
         };
+        addTodolist = (title)=>{
+            alert(title);
+        };
         render = () => {
 
             const todoLists = this.state.todoLists.map(
@@ -21,8 +25,9 @@ import TodoList from "./TodoList";
             return (
                 <div>
                     <div className='add_todo'>
-                        <input type='text'/>
-                        <button onClick={this.addTodolist}>ADD</button>
+                        <AddNewItemForm addItem = {this.addTodolist}/>
+                        {/*<input type='text'/>*/}
+                        {/*<button onClick={this.addTodolist}>ADD</button>*/}
                     </div>
                     <div className='App'>
                         {todoLists}
