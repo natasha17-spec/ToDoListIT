@@ -4,6 +4,9 @@
   flex-direction: row;
 
 }
+.add_todo{
+  margin: 20px 20px 100px 20px;
+}
 .list {
   border: 2px groove #BC8F8F;
   padding: 5px;

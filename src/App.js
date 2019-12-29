@@ -20,6 +20,10 @@ import TodoList from "./TodoList";
 
             return (
                 <div>
+                    <div className='add_todo'>
+                        <input type='text'/>
+                        <button onClick={this.addTodolist}>ADD</button>
+                    </div>
                     <div className='App'>
                         {todoLists}
                         {/*<TodoList id={1}/>*/}
@@ -28,7 +32,9 @@ import TodoList from "./TodoList";
                     </div>
                 </div>
             );
-        }}
+        }
+
+    }
 
 export default App;
 
