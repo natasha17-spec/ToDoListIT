@@ -1,127 +1,109 @@
 import React from 'react';
 import './App.css';
-import AddNewItemForm from "./AddNewItemForm";
+import AddNewItemForm from "./addNewItemForm";
 import TodoListFooter from "./TodoListFooter";
 import TodoListTasks from "./TodoListTasks";
 import TodoListTitle from "./TodoListTitle";
 
 
     class TodoList extends React.Component{
-        constructor(props) {//чтобы запушить новую таску, мы в контрукторе создаем метод setTimeout
-            super(props);
-            this.newTaskTitleRef = React.createRef()
-        }
-        nextTaskId=0;
-        componentDidMount() {
-            this.restoreState();
-        }
+            constructor(props) {//чтобы запушить новую таску, мы в контрукторе создаем метод setTimeout
+                super(props);
+                this.newTaskTitleRef = React.createRef()
+            }
 
-        saveState = () =>{
-            let stateAsString = JSON.stringify(this.state);
-            localStorage.setItem('our-state'+this.props.id,stateAsString);
-        };
+            nextTaskID=0;
+            componentDidMount() {
+                this.restoreState();
+            }
 
-        restoreState = () => {
-            let state = {
-                tasks: [],
-                filterValue: 'All'
+            saveState = (key, value) => {
+                let stateAsString = JSON.stringify(this.state);
+                localStorage.setItem("our-state"+ this.props.id, stateAsString);
             };
 
-            //из этого хранилища забирается из Local Storage
-            //считываем сохраненную ранее строку
-        let stateAsString= localStorage.getItem('our-state'+ this.props.id);
-       //а вдруг не было еще ни одного сохранения, тогда будет null, если не null, тогда превращаем строку в объект
-        if (stateAsString !=null){
-        state= JSON.parse(stateAsString);
-    }
-        this.setState(state, () =>{
-            this.state.tasks.forEach((task)=>{
-                if(task.id >= this.nextTaskId){
-                    this.nextTaskId = task.id + 1
+            restoreState = () =>{
+                let state = {
+                    tasks: [],
+                    filterValue: 'All'
+                };
+                let stateAsString = localStorage.getItem("our-state"+this.props.id);
+                if (stateAsString != null) {
+                    state = JSON.parse(stateAsString);
                 }
-            })
-        });
-        };
-           state= {
+                this.setState(state, () =>{
+                    this.state.tasks.forEach((task)=>{
+                        if(task.id >= this.nextTaskID){
+                            this.nextTaskID = task.id + 1
+                        }
+                    })
+                });
+            };
+
+/*1*/        state= {
                tasks: [
-                   // {id: 1,title: 'JS', isDone: true, priority: "high"},
-                   // {id: 2,title: 'React', isDone: false, priority: "low"},
-                   // {id: 3,title: 'DOM', isDone: true, priority: "middle"},
-                   // {id: 4,title: 'Redux', isDone: false, priority: "low"},
-                   // {id: 5,title: 'HTML', isDone: true, priority: "high"},
-                   // {id: 6,title: 'CSS', isDone: false, priority: "low"},
+                   // {id: 0,title: 'JS', isDone: true, priority: "-low"},
+                   // {id: 1,title: 'React', isDone: false, priority: "-low"},
+                   // {id: 2,title: 'DOM', isDone: true, priority: "-low"},
+                   // {id: 3,title: 'Redux', isDone: false, priority: "-low"},
+                   // {id: 4,title: 'HTML', isDone: true, priority: "-low"},
+                   // {id: 5,title: 'CSS', isDone: false, priority: "-low"},
                ],
-               filterValue:'All'
-             };
-        addTask=(newTitle)=>{
-            let newTask={
-                id:this.nextTaskId,
-                title:newTitle,
+               filterValue:'All' };
+
+/*2*/        addTask = (newTitle) => {        //момент создания новой таски
+            let newTask = {
+                id: this.nextTaskID,    //добавляем объект id
+                title: newTitle,
                 isDone: false,
                 priority: ' -middle'
             };
-            this.nextTaskId++;
-            let newTasks =[...this.state.tasks, newTask];
+            this.nextTaskID++;
+            let newTasks = [...this.state.tasks, newTask];
             this.setState({
                 tasks: newTasks
-            },()=> {this.saveState();});
+            }, ()=>{this.saveState();})
+           ;
         };
-        changeTask = (taskId, obj) =>{
-            let newTasks=this.state.tasks.map(t=> {
-                if (t.id !== taskId) {
+
+/*3*/        changeFilter = (newFilterValue) => {
+            this.setState({
+                filterValue: newFilterValue
+            }, ()=>{this.saveState();})
+        };
+
+/*4*/        changeStatus = (taskID, isDone) => {
+            this.changeTask(taskID, {isDone:isDone})
+            };
+
+/*5*/        changeTitle=(taskID, newTitle)=>{
+             this.changeTask(taskID, {title:newTitle})
+             };
+
+/*6*/        changeTask=(taskID, obj)=>{
+            let newTasks = this.state.tasks.map(t=>{
+                if (t.id === taskID) {
+                    return {...t,...obj}
+                }else{
                     return t;
-                } else {
-                    return {...t, ...obj};
                 }
             });
             this.setState({
-                tasks: newTasks
-            })
+                tasks:newTasks
+            },()=>{this.saveState();})
         };
 
-        changeStatus=(taskId,isDone)=>{
-            this.changeTask(taskId, {isDone: isDone});
-            // let newTasks=this.state.tasks.map(t=> {
-            //     if (t.id != taskId) {
-            //         return t;
-            //     } else {
-            //         return {...t, isDone: isDone};
-            //     }
-            // });
-            // this.setState({
-            //     tasks: newTasks
-            // })
-        };
-        changeTitle=(taskId,title)=>{
-            // let newTasks=this.state.tasks.map(t=> {
-            //     if (t.id != taskId) {
-            //         return t;
-            //     } else {
-            //         return {...t, title: newTitle};
-            //     }
-            // });
-            // this.setState({
-            //     tasks: newTasks
-            // })
-            this.changeTask(taskId, {title: title})
-        };
 
-        changeFilter = (newFilterValue) => {
-            this.setState({
-                filterValue:newFilterValue
-            })
-        };
 
         render = () => {
             return (
-                <div className='list'>
+                <div className='App'>
                     <div className='center'>
-                        <TodoListTitle title={this.props.title}/>
-                        <AddNewItemForm addTask={this.addTask} />
-                    </div>
+                        <TodoListTitle title ={this.props.title}/>
+                        <AddNewItemForm addItem={this.addTask} />
                         <TodoListTasks
-                            changeTitle ={this.changeTitle}
                             changeStatus={this.changeStatus}
+                            changeTitle={this.changeTitle}
                             tasks={this.state.tasks.filter (t => {
                                 switch (this.state.filterValue) {
                                     case 'All':
@@ -133,8 +115,10 @@ import TodoListTitle from "./TodoListTitle";
                                     default:
                                         return true
                                 }})}/>
-                        <TodoListFooter filterValue={this.state.filterValue} changeFilter={this.changeFilter} />
+                        <TodoListFooter filterValue={this.state.filterValue}
+                                        changeFilter={this.changeFilter} />
                     </div>
+                </div>
             );
         }}
 

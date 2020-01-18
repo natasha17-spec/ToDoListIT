@@ -1,86 +1,62 @@
 import React from 'react';
 import './App.css';
 import TodoList from "./TodoList";
-import AddNewItemForm from "./AddNewItemForm";
+import AddNewItemForm from "./addNewItemForm";
 
 
-    class App extends React.Component{
-//есть объект с массивом и это массив однотипных объектов, которые будут описывать наши тутулисты,
-        //у них будет свойство id  и свойство title
-        state= {
-            todoLists:[
-                {id:1, title:'What to learn'},
-                {id:2, title:'Week tasks'},
-                {id:3, title:'Year tasks'}
-            ]
+class App extends React.Component {
+    componentDidMount() {
+        this.restoreState();
+    }
+    nextTodoListID=0;
+    state = {
+        todoLists:[
+            {id:1, title:'What to lear'},
+            {id:2, title:'Weak Tasks'},
+            {id:3, title:'Year Tasks'}
+        ]
+    };
+    addTodoList = (title) => {
+        let newTodoList = {
+            id: this.nextTodoListID,
+            title: title
         };
-
-        nextTodoListId = 0;
-
-        componentDidMount() {
-            this.restoreState();
-        }
-
-        saveState = () =>{
-            let stateAsString = JSON.stringify(this.state);
-            localStorage.setItem('todoLists',stateAsString);
-        };
-
+        this.nextTodoListID++;
+        this.setState({todoLists: [...this.state.todoLists, newTodoList]}, () => this.saveState)
+    };
+    saveState = () => {
+        let stateAsString = JSON.stringify(this.state);
+        localStorage.setItem("todoList-state", stateAsString)
+    };
     restoreState = () => {
-        let state = {
-            todoLists: [],
-        };
-        let stateAsString = localStorage.getItem('todoLists');
+        let state = this.state;
+        let stateAsString = localStorage.getItem('todoList-state');
         if (stateAsString != null) {
-            state = JSON.parse(stateAsString);
+            state = JSON.parse(stateAsString)
         }
         this.setState(state, () => {
-            this.state.todoLists.forEach((task) => {
-                if (task.id >= this.nextTodoListId) {
-                    this.nextTodoListId = task.id + 1
+            this.state.todoLists.forEach(tl => {
+                if (tl.id >= this.nextTodoListID) {
+                    this.nextTodoListID++
                 }
             })
-        });
+        })
     };
-
-
-        addTodolist = (title)=>{
-            let newTodoList = {
-                id:this.nextTodoListId,
-                title: title
-            };
-            this.nextTodoListId++;
-          let newTodoLists=[...this.state.todoLists, newTodoList];
-            this.setState({
-                todoLists:newTodoLists
-            }, ()=>{this.saveState()});
-
-        };
-
-
-        render = () => {
-
-            const todoLists = this.state.todoLists.map(
-                tl=><TodoList id= {tl.id} title={tl.title}/> );
-
-            return (
+    render = () => {
+        let todoLists = this.state.todoLists.map(tl => <TodoList id={tl.id} title={tl.title}/>);
+        return (
+            <>
                 <div>
-                    <div className='add_todo'>
-                        <AddNewItemForm addItem = {this.addTodolist}/>
-                        {/*<input type='text'/>*/}
-                        {/*<button onClick={this.addTodolist}>ADD</button>*/}
-                    </div>
-                    <div className='App'>
-                        {todoLists}
-                        {/*<TodoList id={1}/>*/}
-                        {/*<TodoList id={2}/>*/}
-                        {/*<TodoList id={3}/>*/}
-                    </div>
+                    <AddNewItemForm addItem={this.addTodoList} />
                 </div>
-            );
-        }
 
+                <div className='App'>
+                    {todoLists}
+                </div>
+            </>
+        );
     }
+}
 
 export default App;
 

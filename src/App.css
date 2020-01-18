@@ -1,23 +1,16 @@
 .App {
 
-  display: flex;
-  flex-direction: row;
-
-}
-.add_todo{
-  margin: 20px 20px 100px 20px;
-}
-.list {
-  border: 2px groove #BC8F8F;
-  padding: 5px;
-  margin-bottom: 7px;
+  padding: 5px 5px 5px 5px;
+  margin: 5px 5px 5px 5px;
   background-color:#FFEFD5 ;
   border-radius: 15px;
+  display: flex;
+
 }
+
 .todoList {
   width: 500px;
   margin: 0 auto;
-
 
  }
 .center{
@@ -26,6 +19,7 @@
   justify-content: center;
   align-content: center;
   align-items: center;
+
 }
 
 
@@ -59,7 +53,6 @@
   -webkit-border-radius: 5px;
   border-radius: 5px;
   border: 1px solid #666;
-  font-family: "Arial Narrow";
 
 }
 .error {
@@ -68,25 +61,22 @@
 .todoList-task.done {
   opacity: 0.5;
 }
-.hideShow {
+.hideShow  {
   margin-top: 10px;
   font-weight: bold;
   background-color: #ccc;
-  color: #8639a5;
+  color: brown;
   padding: 5px;
   text-decoration: none;
-  font-size: 20px;
-  border: 2px solid #2082a5;
+  font-size: 16px;
+  border: 2px solid brown;
   border-radius: 5px;
   display: block;
   width: 150px;
   text-align: center;
-  cursor: pointer;
-  font-family: "Arial Narrow";
+  cursor: pointer;;
 }
-
-.todoLists{
-  display: flex;
-  flex-direction: row;
+.addTasks{
+  padding: 5px 5px 30px 5px;
 
 }
