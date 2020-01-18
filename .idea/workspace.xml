@@ -96,7 +96,7 @@
       <workItem from="1574505545846" duration="860000" />
       <workItem from="1575385252175" duration="301000" />
       <workItem from="1575704176421" duration="3308000" />
-      <workItem from="1579375850936" duration="227000" />
+      <workItem from="1579375850936" duration="479000" />
     </task>
     <task id="LOCAL-00001" summary="addcreate">
       <created>1573579332018</created>
@@ -189,7 +189,21 @@
       <option name="project" value="LOCAL" />
       <updated>1579376072816</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="add 5 task">
+      <created>1579376167141</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1579376167141</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add 5 tasks">
+      <created>1579376320753</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1579376320753</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,7 +268,9 @@
     <MESSAGE value="updateProject4lesson" />
     <MESSAGE value="addCSS,endtasks" />
     <MESSAGE value="add 7 task" />
-    <option name="LAST_COMMIT_MESSAGE" value="add 7 task" />
+    <MESSAGE value="add 5 task" />
+    <MESSAGE value="add 5 tasks" />
+    <option name="LAST_COMMIT_MESSAGE" value="add 5 tasks" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
