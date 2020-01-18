@@ -1,136 +1,62 @@
 import React from 'react';
 import './App.css';
-import TodoListHeader from "./TodoListHeader";
-import TodoListFooter from "./TodoListFooter";
-import TodoListTasks from "./TodoListTasks";
+import TodoList from "./TodoList";
+import AddNewItemForm from "./addNewItemForm";
 
 
-    class App extends React.Component{
-        constructor(props) {//чтобы запушить новую таску, мы в контрукторе создаем метод setTimeout
-            super(props);
-            this.newTaskTitleRef = React.createRef()
+class App extends React.Component {
+    componentDidMount() {
+        this.restoreState();
+    }
+    nextTodoListID=0;
+    state = {
+        todoLists:[
+            {id:1, title:'What to lear'},
+            {id:2, title:'Weak Tasks'},
+            {id:3, title:'Year Tasks'}
+        ]
+    };
+    addTodoList = (title) => {
+        let newTodoList = {
+            id: this.nextTodoListID,
+            title: title
+        };
+        this.nextTodoListID++;
+        this.setState({todoLists: [...this.state.todoLists, newTodoList]}, () => this.saveState)
+    };
+    saveState = () => {
+        let stateAsString = JSON.stringify(this.state);
+        localStorage.setItem("todoList-state", stateAsString)
+    };
+    restoreState = () => {
+        let state = this.state;
+        let stateAsString = localStorage.getItem('todoList-state');
+        if (stateAsString != null) {
+            state = JSON.parse(stateAsString)
         }
-        nextTaskId=0;
-        componentDidMount() {
-            this.restoreState();
-        }
-
-        saveState = () =>{
-          let stateAsString = JSON.stringify(this.state);
-          localStorage.setItem('our-state',stateAsString);
-
-        };
-        restoreState = () => {
-          let state = {
-              tasks: [],
-            filterValue: 'All'
-          };
-         let stateAsString= localStorage.getItem('our-state');
-            if (stateAsString !=null){
-                state= JSON.parse(stateAsString);
-            }
-            this.setState(state, () =>{
-                this.state.tasks.forEach((task)=>{
-                    if(task.id >= this.nextTaskId){
-                        this.nextTaskId = task.id + 1
-                    }
-                })
-            });
-        };
-           state= {
-               tasks: [
-                   // {id: 1,title: 'JS', isDone: true, priority: "high"},
-                   // {id: 2,title: 'React', isDone: false, priority: "low"},
-                   // {id: 3,title: 'DOM', isDone: true, priority: "middle"},
-                   // {id: 4,title: 'Redux', isDone: false, priority: "low"},
-                   // {id: 5,title: 'HTML', isDone: true, priority: "high"},
-                   // {id: 6,title: 'CSS', isDone: false, priority: "low"},
-               ],
-               filterValue:'All'
-             };
-        addTask=(newTitle)=>{
-            let newTask={
-                id:this.nextTaskId,
-                title:newTitle,
-                isDone: false,
-                priority: ' -middle'
-            };
-            this.nextTaskId++;
-            let newTasks =[...this.state.tasks, newTask];
-            this.setState({
-                tasks: newTasks
-            },()=> {this.saveState();});
-        };
-        changeTask = (taskId, obj) =>{
-            let newTasks=this.state.tasks.map(t=> {
-                if (t.id !== taskId) {
-                    return t;
-                } else {
-                    return {...t, ...obj};
+        this.setState(state, () => {
+            this.state.todoLists.forEach(tl => {
+                if (tl.id >= this.nextTodoListID) {
+                    this.nextTodoListID++
                 }
-            });
-            this.setState({
-                tasks: newTasks
             })
-        };
-
-        changeStatus=(taskId,isDone)=>{
-            this.changeTask(taskId, {isDone: isDone});
-            // let newTasks=this.state.tasks.map(t=> {
-            //     if (t.id != taskId) {
-            //         return t;
-            //     } else {
-            //         return {...t, isDone: isDone};
-            //     }
-            // });
-            // this.setState({
-            //     tasks: newTasks
-            // })
-        };
-        changeTitle=(taskId,title)=>{
-            // let newTasks=this.state.tasks.map(t=> {
-            //     if (t.id != taskId) {
-            //         return t;
-            //     } else {
-            //         return {...t, title: newTitle};
-            //     }
-            // });
-            // this.setState({
-            //     tasks: newTasks
-            // })
-            this.changeTask(taskId, {title: title})
-        };
-
-        changeFilter = (newFilterValue) => {
-            this.setState({
-                filterValue:newFilterValue
-            })
-        };
-
-        render = () => {
-            return (
-                <div className='App'>
-                    <div className='center'>
-                        <TodoListHeader addTask={this.addTask}/>
-                        <TodoListTasks
-                            changeTitle ={this.changeTitle}
-                            changeStatus={this.changeStatus}
-                            tasks={this.state.tasks.filter (t => {
-                                switch (this.state.filterValue) {
-                                    case 'All':
-                                        return true;
-                                    case 'Active':
-                                        return !t.isDone;
-                                    case 'Completed':
-                                        return t.isDone;
-                                    default:
-                                        return true
-                                }})}/>
-                        <TodoListFooter filterValue={this.state.filterValue} changeFilter={this.changeFilter} />
-                    </div>
+        })
+    };
+    render = () => {
+        let todoLists = this.state.todoLists.map(tl => <TodoList id={tl.id} title={tl.title}/>);
+        return (
+            <>
+                <div>
+                    <AddNewItemForm addItem={this.addTodoList} />
                 </div>
-            );
-        }}
+
+                <div className='App'>
+                    {todoLists}
+                </div>
+            </>
+        );
+    }
+}
 
 export default App;
 
