@@ -39,7 +39,7 @@ class TodoListHeader extends  React.Component {
 
         return (
             <div className='center'>
-                <h3>{this.props.title}</h3>
+                <h3>What to learn</h3>
                 <div>
                     <div>
                         <input
