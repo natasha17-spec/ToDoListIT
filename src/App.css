@@ -1,82 +1,28 @@
 .App {
-
-  padding: 5px 5px 5px 5px;
-  margin: 5px 5px 5px 5px;
-  background-color:#FFEFD5 ;
-  border-radius: 15px;
   display: flex;
-
+  flex-direction: row;
 }
 
 .todoList {
-  width: 500px;
-  margin: 0 auto;
-
- }
-.center{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-
+  width: 300px;
 }
-
 
 .todoList > div {
   padding: 10px;
-
 }
 
 .todoList-task {
-  border-radius: 5px;
-  margin: 5px 0px 5px 0px;
-}
-.filter-active {
-  background: -moz-linear-gradient(#7B68EE, #7B68EE);
-  background: -webkit-gradient(linear, 0 0, 0 100%, from(#7B68EE), to(#7B68EE));
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7B68EE', endColorstr='#7B68EE');
-  padding: 3px 7px;
-  color: #444444;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  border: 1px solid #666;
-}
-.button {
-  background: -moz-linear-gradient(#00BBD6, #EBFFFF);
-  background: -webkit-gradient(linear, 0 0, 0 100%, from(#00BBD6), to(#EBFFFF));
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
-  padding: 3px 7px;
-  color: #333;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  border: 1px solid #666;
 
 }
-.error {
-  border-color: red;
-}
+
 .todoList-task.done {
   opacity: 0.5;
 }
-.hideShow  {
-  margin-top: 10px;
-  font-weight: bold;
-  background-color: #ccc;
-  color: brown;
-  padding: 5px;
-  text-decoration: none;
-  font-size: 16px;
-  border: 2px solid brown;
-  border-radius: 5px;
-  display: block;
-  width: 150px;
-  text-align: center;
-  cursor: pointer;;
-}
-.addTasks{
-  padding: 5px 5px 30px 5px;
 
+.filter-active {
+  background-color: blue;
+}
+
+.error {
+  border-color: red;
 }

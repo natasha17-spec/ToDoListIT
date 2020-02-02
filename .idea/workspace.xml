@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="00b80363-5a46-4d6c-b98f-e6a6e6b97a55" name="Default Changelist" comment="" />
+    <list default="true" id="049c3c0a-d876-4740-a8bf-fde8e2660972" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="08-todolists" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1TCah1hqKCDHlMKMez4QjJb7dg5" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <OptionsSetting value="false" id="Update" />
-  </component>
+  <component name="ProjectId" id="1XFBLGKmpAGhgoyBOpnu7KYJWQw" />
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -26,11 +25,10 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.By Scope" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\snulya\src" />
+      <recent name="D:\trener\08-todolists\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -67,220 +65,16 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="00b80363-5a46-4d6c-b98f-e6a6e6b97a55" name="Default Changelist" comment="" />
-      <created>1572966646631</created>
+      <changelist id="049c3c0a-d876-4740-a8bf-fde8e2660972" name="Default Changelist" comment="" />
+      <created>1580631904897</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1572966646631</updated>
-      <workItem from="1572966650589" duration="8825000" />
-      <workItem from="1572977664382" duration="505000" />
-      <workItem from="1573224682466" duration="65000" />
-      <workItem from="1573571559112" duration="9318000" />
-      <workItem from="1573581209882" duration="91000" />
-      <workItem from="1573699237646" duration="38000" />
-      <workItem from="1573974613002" duration="1051000" />
-      <workItem from="1573983812712" duration="1424000" />
-      <workItem from="1573989768048" duration="1165000" />
-      <workItem from="1573992507203" duration="1279000" />
-      <workItem from="1573996153697" duration="194000" />
-      <workItem from="1574009894853" duration="1798000" />
-      <workItem from="1574101972908" duration="26000" />
-      <workItem from="1574176317322" duration="459000" />
-      <workItem from="1574183442281" duration="688000" />
-      <workItem from="1574269143070" duration="1127000" />
-      <workItem from="1574270342672" duration="312000" />
-      <workItem from="1574270694828" duration="831000" />
-      <workItem from="1574271705691" duration="217000" />
-      <workItem from="1574271993182" duration="5932000" />
-      <workItem from="1574440619407" duration="3939000" />
-      <workItem from="1574505545846" duration="860000" />
-      <workItem from="1575385252175" duration="301000" />
-      <workItem from="1575704176421" duration="3308000" />
-      <workItem from="1579375850936" duration="479000" />
+      <updated>1580631904897</updated>
+      <workItem from="1580631907698" duration="9822000" />
     </task>
-    <task id="LOCAL-00001" summary="addcreate">
-      <created>1573579332018</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1573579332019</updated>
-    </task>
-    <task id="LOCAL-00002" summary="занулить_input">
-      <created>1573580649720</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1573580649720</updated>
-    </task>
-    <task id="LOCAL-00003" summary="занулить_input12">
-      <created>1573580746959</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1573580746959</updated>
-    </task>
-    <task id="LOCAL-00004" summary="to_annihilate_inpute">
-      <created>1573580846701</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1573580846701</updated>
-    </task>
-    <task id="LOCAL-00005" summary="changeFilter">
-      <created>1573983879885</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1573983879885</updated>
-    </task>
-    <task id="LOCAL-00006" summary="filter_tasks">
-      <created>1573985433725</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1573985433725</updated>
-    </task>
-    <task id="LOCAL-00007" summary="onClickToDoListHeader">
-      <created>1573992618124</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1573992618124</updated>
-    </task>
-    <task id="LOCAL-00008" summary="onClickToDoListHeader">
-      <created>1573992872895</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1573992872895</updated>
-    </task>
-    <task id="LOCAL-00009" summary="changeCheckbox">
-      <created>1574010040623</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1574010040623</updated>
-    </task>
-    <task id="LOCAL-00010" summary="updateProject4lesson">
-      <created>1574270759687</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1574270759687</updated>
-    </task>
-    <task id="LOCAL-00011" summary="updateProject4lesson">
-      <created>1574271023622</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1574271023622</updated>
-    </task>
-    <task id="LOCAL-00012" summary="addCSS,endtasks">
-      <created>1574505625099</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1574505625099</updated>
-    </task>
-    <task id="LOCAL-00013" summary="add 7 task">
-      <created>1579376072816</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1579376072816</updated>
-    </task>
-    <task id="LOCAL-00014" summary="add 5 task">
-      <created>1579376167141</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1579376167141</updated>
-    </task>
-    <task id="LOCAL-00015" summary="add 5 tasks">
-      <created>1579376320753</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1579376320753</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="1">
-          <value>
-            <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="roots">
-                    <value>
-                      <list>
-                        <option value="$PROJECT_DIR$/ToDoListIT" />
-                        <option value="$PROJECT_DIR$" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="OPEN_TABS">
-      <set>
-        <option value="1" />
-      </set>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/ToDoListIT" />
-    </ignored-roots>
-    <MESSAGE value="addcreate" />
-    <MESSAGE value="занулить_input" />
-    <MESSAGE value="занулить_input12" />
-    <MESSAGE value="to_annihilate_inpute" />
-    <MESSAGE value="changeFilter" />
-    <MESSAGE value="filter_tasks" />
-    <MESSAGE value="onClickToDoListHeader" />
-    <MESSAGE value="changeCheckbox" />
-    <MESSAGE value="updateProject4lesson" />
-    <MESSAGE value="addCSS,endtasks" />
-    <MESSAGE value="add 7 task" />
-    <MESSAGE value="add 5 task" />
-    <MESSAGE value="add 5 tasks" />
-    <option name="LAST_COMMIT_MESSAGE" value="add 5 tasks" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/react.d.ts</url>
-          <line>298</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

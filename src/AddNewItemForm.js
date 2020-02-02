@@ -1,60 +1,52 @@
 import React from 'react';
 import './App.css';
 
-
-class AddNewItemForm extends  React.Component {
-
-    constructor(props) {
-            super(props);
-            this.newTaskTitleRef = React.createRef();
-        }
+class AddNewItemForm extends React.Component {
     state = {
         error: false,
-        title: ''
-    };
+        title: ""
+    }
+
     onAddItemClick = () => {
-        let newTitle = this.state.title;
-        this.setState({title: ''});
-        if (newTitle.trim() === '') {
-            this.setState({error: true})
+        let newText = this.state.title;
+        this.setState({title: ""});
+
+        if (newText === "") {
+            this.setState({error: true});
         } else {
             this.setState({error: false});
-            this.props.addItem(newTitle);
+            // передаём новый текст наружу
+            this.props.addItem(newText);
         }
-    };
+    }
+
     onTitleChanged = (e) => {
         this.setState({
             error: false,
             title: e.currentTarget.value
-        })
-    };
-    onKeyPress = (e) =>{
-        if(e.key === 'Enter'){
-            this.onAddItemClick()
+        });
+    }
+
+    onKeyPress = (e) => {
+        if (e.key === "Enter") {
+            this.onAddItemClick();
         }
-    };
+    }
 
 
-        render = () => {
-            let classForInput = this.state.error ? 'error':'';
+    render = () => {
+        let classNameForInput = this.state.error ? "error" : "";
 
         return (
-            <div className='center'>
-                <h3>{this.props.title}</h3>
-                <div>
-                    <div>
-                        <input
-                               type='text'
-                               placeholder='New task'
-                               className={classForInput}
-                               onChange={this.onTitleChanged}
-                               onKeyPress={this.onKeyPress}
-                               value={this.state.title}
-                        />
-                        <button onClick={this.onAddItemClick} className='button'>Add</button>
-                    </div>
-                </div>
+            <div className="todoList-newTaskForm">
+                <input className={classNameForInput} type="text" placeholder="New item name"
+                       onChange={this.onTitleChanged}
+                       onKeyPress={this.onKeyPress}
+                       value={this.state.title}
+                />
+                <button onClick={this.onAddItemClick}>Add</button>
             </div>
+
         );
     }
 }

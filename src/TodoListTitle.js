@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
 
-
-class TodoListTitle extends  React.Component {
-        render = () => {
-         return (
-             <h3>{this.props.title}</h3>
+class TodoListTitle extends React.Component {
+   render = () => {
+        return (
+                <h3 className="todoList-header__title">{this.props.title}</h3>
         );
     }
 }
