@@ -26,3 +26,8 @@
 .error {
   border-color: red;
 }
+
+.container{
+  display: flex;
+  align-items: center;
+}
