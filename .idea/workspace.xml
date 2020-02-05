@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="049c3c0a-d876-4740-a8bf-fde8e2660972" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/reducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TodoList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/TodoList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TodoListTask.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/TodoListTask.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TodoListTasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/TodoListTasks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TodoListTitle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/TodoListTitle.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +34,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\snulya\src" />
       <recent name="D:\trener\08-todolists\src" />
     </key>
   </component>
@@ -80,7 +79,9 @@
       <updated>1580631904897</updated>
       <workItem from="1580631907698" duration="9822000" />
       <workItem from="1580648210814" duration="6761000" />
-      <workItem from="1580746173424" duration="8341000" />
+      <workItem from="1580746173424" duration="8448000" />
+      <workItem from="1580831316479" duration="1258000" />
+      <workItem from="1580914206482" duration="10441000" />
     </task>
     <task id="LOCAL-00001" summary="addTodoList 8 lesson">
       <created>1580648279701</created>
@@ -96,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580666578663</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="deleteTask8 lesson">
+      <created>1580756243914</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1580756243915</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,6 +126,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="addTodoList 8 lesson" />
     <MESSAGE value="addTasks 8 lesson" />
-    <option name="LAST_COMMIT_MESSAGE" value="addTasks 8 lesson" />
+    <MESSAGE value="deleteTask8 lesson" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleteTask8 lesson" />
   </component>
 </project>

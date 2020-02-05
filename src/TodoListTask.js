@@ -5,7 +5,7 @@ class TodoListTask extends React.Component {
 
     onIsDoneChanged = (e) => {
         this.props.changeStatus(this.props.task.id, e.currentTarget.checked);
-    }
+    };
 
     onTitleChanged = (e) => {
         this.props.changeTitle(this.props.task.id, e.currentTarget.value);
@@ -21,11 +21,11 @@ class TodoListTask extends React.Component {
 
     deactivateEditMode= () => {
         this.setState({editMode: false});
-    }
+    };
 
     deleteTask=()=>{
         this.props.deleteTask(this.props.task.id)
-    }
+    };
 
     render = () => {
 
