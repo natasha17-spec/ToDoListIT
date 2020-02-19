@@ -4,8 +4,9 @@ import './App.css';
 class TodoListTask extends React.Component {
 
     onIsDoneChanged = (e) => {
-        this.props.changeStatus(this.props.task.id, e.currentTarget.checked);
-    };
+        let status = e.currentTarget.checked ? 2 : 0;
+        this.props.changeStatus(this.props.task.id, status);
+    }
 
     onTitleChanged = (e) => {
         this.props.changeTitle(this.props.task.id, e.currentTarget.value);
@@ -21,25 +22,28 @@ class TodoListTask extends React.Component {
 
     deactivateEditMode= () => {
         this.setState({editMode: false});
-    };
-
-    deleteTask=()=>{
-        this.props.deleteTask(this.props.task.id)
-    };
-
+    }
+    onDeleteTask = () => {
+        this.props.deleteTask(this.props.task.id);
+    }
     render = () => {
-
         let containerCssClass = this.props.task.isDone ? "todoList-task done" : "todoList-task";
-
+        let priotityTitle = "";
+        switch (this.props.task.priority) {
+            case 0: priotityTitle = "Low"; break;
+            case 1: priotityTitle = "Middle"; break;
+            case 2: priotityTitle = "High"; break;
+            case 3: priotityTitle = "Urgently"; break;
+            case 4: priotityTitle = "Later"; break;
+        }
         return (
                 <div className={containerCssClass}>
-                    <input type="checkbox" checked={this.props.task.isDone}
+                    <input type="checkbox" checked={this.props.task.status == 2}
                            onChange={this.onIsDoneChanged}/>
                     { this.state.editMode
                         ? <input onBlur={this.deactivateEditMode} onChange={this.onTitleChanged} autoFocus={true} value={this.props.task.title} />
-                        : <span onClick={this.activateEditMode}>{this.props.task.id} - {this.props.task.title}</span>
-                    }, priority: {this.props.task.priority}
-                    <button onClick={this.deleteTask}>x</button>
+                        : <span onClick={this.activateEditMode}>{this.props.task.title}</span>
+                    }, priority: {priotityTitle} <button onClick={this.onDeleteTask}>X</button>
                 </div>
         );
     }
