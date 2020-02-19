@@ -5,6 +5,7 @@ import AddNewItemForm from "./AddNewItemForm";
 import {connect} from "react-redux";
 import {ADD_TODOLIST, addTodolistAC, setTodolistsAC} from "./reducer";
 import axios from "axios";
+import {api} from "./api";
 
 class App extends React.Component {
 
@@ -15,17 +16,9 @@ class App extends React.Component {
     }
 
     addTodoList = (title) => {
-        axios.post(
-            "https://social-network.samuraijs.com/api/1.0/todo-lists",                // адрес endpoint-а
-            {title: title},                                         // объект, который нужен серваку для совершения действия
-            // настройки запроса
-            {
-                withCredentials: true,                                       // передавай с запросом куки для запрашиваемого домена
-                headers: {"API-KEY": "8cb29b96-1ff9-457a-9229-34cee0202934"} // специальный ключ в заголовках передаём
-            }                                                                // (у каждого свой ключ должен быть)
-        )
+        api.createTodolist(title)
             .then(res => {
-                let todolist = res.data.data.item;                           // todolist, который создался на серваке и вернулся нам
+                let todolist = res.data.data.item;
                 this.props.addTodolist(todolist);
             });
     }
@@ -45,8 +38,7 @@ class App extends React.Component {
     }
 
     restoreState = () => {
-        axios.get("https://social-network.samuraijs.com/api/1.0/todo-lists", {withCredentials: true})
-            .then(res => {
+        api.getTodolists().then(res => {
                 this.props.setTodolists(res.data);
             });
     }

@@ -5,8 +5,9 @@ import TodoListFooter from "./TodoListFooter";
 import TodoListTitle from "./TodoListTitle";
 import AddNewItemForm from "./AddNewItemForm";
 import {connect} from "react-redux";
-import {addTaskAC, deleteTaskAC, deleteTodolistAC, setTasksAC, updateTaskAC} from "./reducer";
+import {addTaskAC, deleteTaskAC, deleteTodolistAC, setTasksAC, updateTaskAC, updateTodolistTitleAC} from "./reducer";
 import axios from "axios";
+import {api} from "./api";
 
 
 class TodoList extends React.Component {
@@ -28,14 +29,7 @@ class TodoList extends React.Component {
     }
 
     restoreState = () => {
-        axios.get(
-            `https://social-network.samuraijs.com/api/1.0/todo-lists/${this.props.id}/tasks`, // адрес endpoint-а
-            // настройки запроса
-            {
-                withCredentials: true,                                       // передавай с запросом куки для запрашиваемого домена
-                headers: {"API-KEY": "8cb29b96-1ff9-457a-9229-34cee0202934"} // специальный ключ в заголовках передаём
-            }                                                                // (у каждого свой ключ должен быть)
-        )
+        api.getTasks(this.props.id)
             .then(res => {
                 let allTasks = res.data.items;                           // items - это таски сервака
                 this.props.setTasks(allTasks, this.props.id);
@@ -48,19 +42,10 @@ class TodoList extends React.Component {
     };
 
     addTask = (newText) => {
-        axios.post(
-            `https://social-network.samuraijs.com/api/1.0/todo-lists/${this.props.id}/tasks`, // адрес endpoint-а
-            {title: newText},                                         // объект, который нужен серваку для совершения действия
-            // настройки запроса
-            {
-                withCredentials: true,                                       // передавай с запросом куки для запрашиваемого домена
-                headers: {"API-KEY": "8cb29b96-1ff9-457a-9229-34cee0202934"} // специальный ключ в заголовках передаём
-            }                                                                // (у каждого свой ключ должен быть)
-        )
-            .then(res => {
-                let newTask = res.data.data.item;                           // task, который создался на серваке и вернулся нам
-                this.props.addTask(newTask, this.props.id);
-            });
+        api.createTask(newText, this.props.id).then(res => {
+            let newTask = res.data.data.item;
+            this.props.addTask(newTask, this.props.id);
+        });
     }
 
     changeFilter = (newFilterValue) => {
@@ -73,21 +58,12 @@ class TodoList extends React.Component {
 
         this.props.tasks.forEach(t => {
             if (t.id === taskId) {
-                axios.put(
-                    `https://social-network.samuraijs.com/api/1.0/todo-lists/tasks`, // адрес endpoint-а
-                    {...t, ...obj},
-                    {
-                        withCredentials: true,                                       // передавай с запросом куки для запрашиваемого домена
-                        headers: {"API-KEY": "8cb29b96-1ff9-457a-9229-34cee0202934"} // специальный ключ в заголовках передаём
-                    }                                                                // (у каждого свой ключ должен быть)
-                )
+                api.updateTask({...t, ...obj})
                     .then(res => {
                         this.props.updateTask(taskId, obj, this.props.id);
                     });
             }
         })
-
-
     }
 
     changeStatus = (taskId, status) => {
@@ -99,15 +75,7 @@ class TodoList extends React.Component {
     }
 
     deleteTodolist = () => {
-        axios.delete(  // тип запроса delete
-            "https://social-network.samuraijs.com/api/1.0/todo-lists/" + this.props.id, // адрес endpoint-а
-                                                                    // с добавленным в конец id-шником
-                                                                    // настройки запроса
-            {
-                withCredentials: true,                                       // передавай с запросом куки для запрашиваемого домена
-                headers: {"API-KEY": "8cb29b96-1ff9-457a-9229-34cee0202934"} // специальный ключ в заголовках передаём
-            }                                                                // (у каждого свой ключ должен быть)
-        )
+        api.deleteTodolist(this.props.id)
             .then(res => {
                 // раз попали в then, значит
                 this.props.deleteTodolist(this.props.id);
@@ -115,18 +83,17 @@ class TodoList extends React.Component {
     }
 
     deleteTask = (taskId) => {
-        axios.delete(  // тип запроса delete
-            `https://social-network.samuraijs.com/api/1.0/todo-lists/tasks/${taskId}`, // адрес endpoint-а
-            // с добавленным в конец id-шником
-            // настройки запроса
-            {
-                withCredentials: true,                                       // передавай с запросом куки для запрашиваемого домена
-                headers: {"API-KEY": "8cb29b96-1ff9-457a-9229-34cee0202934"} // специальный ключ в заголовках передаём
-            }                                                                // (у каждого свой ключ должен быть)
-        )
+        api.deleteTask(taskId)
             .then(res => {
                 // раз попали в then, значит
                 this.props.deleteTask(taskId, this.props.id);
+            });
+    }
+
+    updateTitle = (title) => {
+        api.updateTodolistTitle(title, this.props.id)
+            .then(res => {
+                this.props.updateTodolistTitle(title, this.props.id);
             });
     }
 
@@ -135,7 +102,7 @@ class TodoList extends React.Component {
         return (
                 <div className="todoList">
                     <div className="todoList-header">
-                            <TodoListTitle title={this.props.title} onDelete={this.deleteTodolist} />
+                            <TodoListTitle title={this.props.title} onDelete={this.deleteTodolist} updateTitle={this.updateTitle} />
                             <AddNewItemForm addItem={this.addTask} />
 
                     </div>
@@ -179,6 +146,10 @@ const mapDispatchToProps = (dispatch) => {
         },
         deleteTask: (taskId, todolistId) => {
             const action = deleteTaskAC(todolistId, taskId);
+            dispatch(action)
+        },
+        updateTodolistTitle: (title, todolistId) => {
+            const action = updateTodolistTitleAC(todolistId, title);
             dispatch(action)
         }
     }
