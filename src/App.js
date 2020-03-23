@@ -2,6 +2,9 @@ import React from 'react';
 import './App.css';
 import TodoList from "./TodoList";
 import AddNewItemForm from "./AddNewItemForm";
+import {connect} from "react-redux";
+import {addTodolistAC, setTodolistsAC} from "./reducer";
+import axios from "axios";
 
 class App extends React.Component {
 
@@ -12,17 +15,18 @@ class App extends React.Component {
     }
 
     addTodoList = (title) => {
+        axios.post("https://social-network.samuraijs.com/api/1.1/todo-lists",
+            {title},
+            {
+                withCredentials: true,
+                headers:{"API-KEY":"aee8e0dc-0edb-41fe-ae30-2037f01a0933"}
+            })
+            .then(res => {
+                debugger
 
-        let newTodoList = {
-            id: this.nextTodoListId,
-            title: title
-        }
-
-        this.setState({todolists: [...this.state.todolists, newTodoList]}, () => {
-            this.saveState();
-        });
-
-        this.nextTodoListId++;
+                this.props.addTodolist(res.data.data.item);
+                console.log(res.data.data.item);
+            });
 
 
     }
@@ -40,6 +44,16 @@ class App extends React.Component {
     }
 
     restoreState = () => {
+        axios.get("https://social-network.samuraijs.com/api/1.1/todo-lists",
+            {withCredentials: true})
+            .then(res => {
+               this.props.setTodoLists(res.data);
+            });
+    }
+
+
+
+    _restoreState = () => {
         // объявляем наш стейт стартовый
         let state = this.state;
         // считываем сохранённую ранее строку из localStorage
@@ -60,14 +74,14 @@ class App extends React.Component {
     }
 
     render = () => {
-        const todolists = this.state
+        const todolists = this.props
             .todolists
-            .map(tl => <TodoList id={tl.id} title={tl.title}/>)
+            .map(tl => <TodoList id={tl.id} title={tl.title} tasks={tl.tasks} />)
 
         return (
             <>
                 <div>
-                   <AddNewItemForm addItem={this.addTodoList}/>
+                    <AddNewItemForm addItem={this.addTodoList}/>
                 </div>
                 <div className="App">
                     {todolists}
@@ -77,5 +91,25 @@ class App extends React.Component {
     }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        todolists: state.todolists
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setTodoLists: (todolists) => {
+            const action = setTodolistsAC(todolists);
+            dispatch(action)
+        },
+        addTodolist: (newTodolist) => {
+            const action = addTodolistAC(newTodolist);
+            dispatch(action)
+        }
+    }
+};
+
+const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
+export default ConnectedApp;
 
