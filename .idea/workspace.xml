@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="049c3c0a-d876-4740-a8bf-fde8e2660972" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/reducer.js" afterDir="false" />
+    <list default="true" id="8bb7c64a-178f-4552-baa4-6feed6762c07" name="Default Changelist" comment="11-lesson-API">
+      <change afterPath="$PROJECT_DIR$/.idea/08-todolists.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TodoList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/TodoList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TodoListTask.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/TodoListTask.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,29 +12,24 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="08-todolists" />
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1XFBLGKmpAGhgoyBOpnu7KYJWQw" />
+  <component name="ProjectId" id="1ZUd2HQCsYdt2QMLMd7S6W2ffAs" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\snulya\src" />
-      <recent name="D:\trener\08-todolists\src" />
-    </key>
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.gutterIcons" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -51,60 +44,39 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="start" />
-      </scripts>
+      <command value="start" />
       <node-interpreter value="project" />
       <envs />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="npm.start" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="049c3c0a-d876-4740-a8bf-fde8e2660972" name="Default Changelist" comment="" />
-      <created>1580631904897</created>
+      <changelist id="8bb7c64a-178f-4552-baa4-6feed6762c07" name="Default Changelist" comment="" />
+      <created>1584897398761</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1580631904897</updated>
-      <workItem from="1580631907698" duration="9822000" />
-      <workItem from="1580648210814" duration="6761000" />
-      <workItem from="1580746173424" duration="8448000" />
-      <workItem from="1580831316479" duration="1258000" />
-      <workItem from="1580914206482" duration="10441000" />
+      <updated>1584897398761</updated>
+      <workItem from="1584897408452" duration="971000" />
+      <workItem from="1584950003678" duration="16721000" />
+      <workItem from="1584982190437" duration="5000" />
+      <workItem from="1584982504667" duration="805000" />
+      <workItem from="1585071966006" duration="56000" />
+      <workItem from="1585127341477" duration="29000" />
     </task>
-    <task id="LOCAL-00001" summary="addTodoList 8 lesson">
-      <created>1580648279701</created>
+    <task id="LOCAL-00001" summary="11-lesson-API">
+      <created>1584982687412</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1580648279748</updated>
+      <updated>1584982687412</updated>
     </task>
-    <task id="LOCAL-00002" summary="addTasks 8 lesson">
-      <created>1580666578663</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1580666578663</updated>
-    </task>
-    <task id="LOCAL-00003" summary="deleteTask8 lesson">
-      <created>1580756243914</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1580756243915</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,9 +96,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="addTodoList 8 lesson" />
-    <MESSAGE value="addTasks 8 lesson" />
-    <MESSAGE value="deleteTask8 lesson" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleteTask8 lesson" />
+    <MESSAGE value="11-lesson-API" />
+    <option name="LAST_COMMIT_MESSAGE" value="11-lesson-API" />
   </component>
 </project>

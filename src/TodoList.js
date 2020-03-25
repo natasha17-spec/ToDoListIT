@@ -5,8 +5,9 @@ import TodoListFooter from "./TodoListFooter";
 import TodoListTitle from "./TodoListTitle";
 import AddNewItemForm from "./AddNewItemForm";
 import {connect} from "react-redux";
-import {addTaskAC, deleteTaskAC, deleteTodolistAC, updateTaskAC} from "./reducer";
+import {addTaskAC, deleteTaskAC, deleteTodolistAC, setTasksAC, updateTaskAC} from "./reducer";
 import axios from "axios";
+import {api} from "./Api";
 
 
 class TodoList extends React.Component {
@@ -14,7 +15,6 @@ class TodoList extends React.Component {
     constructor(props) {
         super(props);
         this.newTasksTitileRef = React.createRef();
-
     }
 
     componentDidMount() {
@@ -29,43 +29,25 @@ class TodoList extends React.Component {
     }
 
     restoreState = () => {
-        // объявляем наш стейт стартовый
-        let state = this.state;
-        // считываем сохранённую ранее строку из localStorage
-        let stateAsString = localStorage.getItem("our-state-" + this.props.id);
-        // а вдруг ещё не было ни одного сохранения?? тогда будет null.
-        // если не null, тогда превращаем строку в объект
-        if (stateAsString != null) {
-            state = JSON.parse(stateAsString);
-        }
-        // устанавливаем стейт (либо пустой, либо восстановленный) в стейт
-        this.setState(state, () => {
-            this.state.tasks.forEach(t => {
-                if (t.id >= this.nextTaskId) {
-                    this.nextTaskId = t.id + 1;
-                }
-            })
-        });
-    }
+        api.getTask(this.props.id)
+            .then(res => {
+                let allTasks = res.data.items;                           // items - это таски сервака
+                this.props.setTasks(allTasks, this.props.id);
+            });
+    }; //ok
 
-    nextTaskId = 0;
 
     state = {
-        tasks: [],
         filterValue: "All"
     };
 
     addTask = (newText) => {
-        axios.post(`https://social-network.samuraijs.com/api/1.0/todo-lists/${this.props.id}/tasks`,
-            {title:newText},
-            {
-                withCredentials:true,
-                headers:{"API-KEY":"aee8e0dc-0edb-41fe-ae30-2037f01a0933"}
-            }
-        ).then(res=>{
-            this.props.addTask(res.data.data.item,this.props.id);
-        })
-    }
+       api.createTask(newText,this.props.id)
+            .then(res => {
+                let newTask = res.data.data.item;                           // task, который создался на серваке и вернулся нам
+                this.props.addTask(newTask, this.props.id);
+            });
+    } //ok
 
     changeFilter = (newFilterValue) => {
         this.setState( {
@@ -74,11 +56,19 @@ class TodoList extends React.Component {
     }
 
     changeTask = (taskId, obj) => {
-        this.props.updateTask(taskId, obj, this.props.id);
-    }
+        let changedTask = this.props.tasks.find(task => {
+            return task.id === taskId
+        });
+        let task = {...changedTask, ...obj};
 
-    changeStatus = (taskId, isDone) => {
-        this.changeTask(taskId, {isDone: isDone});
+        api.updateTask(taskId, this.props.id, task)
+            .then(res => {
+                this.props.updateTask(taskId, obj, this.props.id)
+            })
+        } //ok
+
+    changeStatus = (taskId, status) => {
+        this.changeTask(taskId, {status: status});
     }
 
     changeTitle = (taskId, title) => {
@@ -86,38 +76,34 @@ class TodoList extends React.Component {
     }
 
     deleteTodolist = () => {
-        axios.delete("https://social-network.samuraijs.com/api/1.0/todo-lists/"+ this.props.id,
-            {
-                withCredentials:true,
-                headers:{"API-KEY":"aee8e0dc-0edb-41fe-ae30-2037f01a0933"}
-            }
-            ).then(res=>{
-            this.props.deleteTodolist(this.props.id);
-        })
-       };
+       api.deleteTodolist(this.props.id)
+            .then(res => {
+                // раз попали в then, значит
+                this.props.deleteTodolist(this.props.id);
+            });
+    } //ok
 
     deleteTask = (taskId) => {
-        axios.delete(`https://social-network.samuraijs.com/api/1.0/todo-lists/tasks/${taskId}`,
-            {
-                withCredentials:true,
-                headers:{"API-KEY":"aee8e0dc-0edb-41fe-ae30-2037f01a0933"}
-            }
-        ).then(res=>{
+        api.deleteTask(taskId, this.props.id).then(res => {
+            // раз попали в then, значит
             this.props.deleteTask(taskId, this.props.id);
-        })
-    };
+        });
+    }
 
     render = () => {
-        let {tasks=[]}= this.props;
+        let {tasks = []} = this.props;
         return (
                 <div className="todoList">
                     <div className="todoList-header">
                             <TodoListTitle title={this.props.title} onDelete={this.deleteTodolist} />
                             <AddNewItemForm addItem={this.addTask} />
+
                     </div>
+
                     <TodoListTasks changeStatus={this.changeStatus }
                                    changeTitle={this.changeTitle }
                                    deleteTask={this.deleteTask}
+                                   /*tasks={this.props.tasks.filter(t => {*/
                                    tasks={tasks.filter(t => {
                         if (this.state.filterValue === "All") {
                             return true;
@@ -138,9 +124,10 @@ class TodoList extends React.Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         addTask(newTask, todolistId) {
-
-            //const action = addTaskAC(newTask, todolistId);
             dispatch(addTaskAC(newTask, todolistId));
+        },
+        setTasks(tasks, todolistId) {
+            dispatch(setTasksAC(tasks, todolistId));
         },
         updateTask(taskId, obj, todolistId) {
             const action =  updateTaskAC(taskId, obj, todolistId);
@@ -155,7 +142,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(action)
         }
     }
-}
+};
 
 const ConnectedTodolist = connect(null, mapDispatchToProps)(TodoList);
 
