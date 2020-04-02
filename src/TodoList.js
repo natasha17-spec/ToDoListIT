@@ -5,9 +5,14 @@ import TodoListFooter from "./TodoListFooter";
 import TodoListTitle from "./TodoListTitle";
 import AddNewItemForm from "./AddNewItemForm";
 import {connect} from "react-redux";
-import {addTaskAC, deleteTaskAC, deleteTodolistAC, setTasksAC, updateTaskAC} from "./reducer";
-import axios from "axios";
-import {api} from "./Api";
+import {
+    changeTaskTC,
+    createTaskTC,
+    deleteTaskTC,
+    deleteTodolistTC,
+    setTaskTC,
+} from "./reducer";
+
 
 
 class TodoList extends React.Component {
@@ -29,11 +34,13 @@ class TodoList extends React.Component {
     }
 
     restoreState = () => {
-        api.getTask(this.props.id)
-            .then(res => {
-                let allTasks = res.data.items;                           // items - это таски сервака
-                this.props.setTasks(allTasks, this.props.id);
-            });
+            this.props.setTasks(this.props.id);
+
+        // api.getTask(this.props.id)
+        //     .then(res => {
+        //         let allTasks = res.data.items;                           // items - это таски сервака
+        //         this.props.setTasks(res.data.items, this.props.id);
+        //     });
     }; //ok
 
 
@@ -41,13 +48,9 @@ class TodoList extends React.Component {
         filterValue: "All"
     };
 
-    addTask = (newText) => {
-       api.createTask(newText,this.props.id)
-            .then(res => {
-                let newTask = res.data.data.item;                           // task, который создался на серваке и вернулся нам
-                this.props.addTask(newTask, this.props.id);
-            });
-    } //ok
+    addTask = (newTask) => {
+        this.props.createTask(newTask,this.props.id)
+    }
 
     changeFilter = (newFilterValue) => {
         this.setState( {
@@ -56,15 +59,15 @@ class TodoList extends React.Component {
     }
 
     changeTask = (taskId, obj) => {
-        let changedTask = this.props.tasks.find(task => {
-            return task.id === taskId
-        });
-        let task = {...changedTask, ...obj};
+        debugger
 
-        api.updateTask(taskId, this.props.id, task)
-            .then(res => {
-                this.props.updateTask(taskId, obj, this.props.id)
-            })
+        this.props.updateTask(taskId, obj,this.props.id)
+
+
+        // api.updateTask(taskId, this.props.id, task)
+        //     .then(res => {
+        //         this.props.updateTask(taskId, obj, this.props.id)
+        //     })
         } //ok
 
     changeStatus = (taskId, status) => {
@@ -76,18 +79,11 @@ class TodoList extends React.Component {
     }
 
     deleteTodolist = () => {
-       api.deleteTodolist(this.props.id)
-            .then(res => {
-                // раз попали в then, значит
-                this.props.deleteTodolist(this.props.id);
-            });
+       this.props.deleteTodolist(this.props.id)
     } //ok
 
     deleteTask = (taskId) => {
-        api.deleteTask(taskId, this.props.id).then(res => {
-            // раз попали в then, значит
-            this.props.deleteTask(taskId, this.props.id);
-        });
+       this.props.deleteTask(taskId, this.props.id)
     }
 
     render = () => {
@@ -123,24 +119,23 @@ class TodoList extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addTask(newTask, todolistId) {
-            dispatch(addTaskAC(newTask, todolistId));
-        },
-        setTasks(tasks, todolistId) {
-            dispatch(setTasksAC(tasks, todolistId));
+        setTasks(todolistId) {
+            dispatch(setTaskTC(todolistId));
         },
         updateTask(taskId, obj, todolistId) {
-            const action =  updateTaskAC(taskId, obj, todolistId);
-            dispatch(action);
+            debugger
+            dispatch(changeTaskTC(taskId, obj, todolistId));
         },
         deleteTodolist: (todolistId) => {
-            const action = deleteTodolistAC(todolistId);
-            dispatch(action)
+            dispatch(deleteTodolistTC(todolistId))
         },
         deleteTask: (taskId, todolistId) => {
-            const action = deleteTaskAC(todolistId, taskId);
-            dispatch(action)
-        }
+            dispatch(deleteTaskTC(todolistId, taskId))
+        },
+        createTask: (newTask, todolistId) => {
+            debugger
+            dispatch(createTaskTC(newTask, todolistId))
+        },
     }
 };
 

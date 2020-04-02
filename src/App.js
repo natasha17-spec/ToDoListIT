@@ -3,8 +3,7 @@ import './App.css';
 import TodoList from "./TodoList";
 import AddNewItemForm from "./AddNewItemForm";
 import {connect} from "react-redux";
-import {ADD_TODOLIST, addTodolistAC, setTodolistsAC} from "./reducer";
-import axios from "axios";
+import {addTodolistAC, addTodolistTC, getTodolistsTC} from "./reducer";
 import {api} from "./Api";
 
 class App extends React.Component {
@@ -16,12 +15,8 @@ class App extends React.Component {
     };
 
     addTodoList = (title) => {
-        api.createTodoList(title)
-            .then(res => {
-                let todolist = res.data.data.item;                           // todolist, который создался на серваке и вернулся нам
-                this.props.addTodolist(todolist);
-            });
-    }; //ok
+        this.props.addTodolist(title);
+        }; //ok
 
 
 
@@ -38,9 +33,7 @@ class App extends React.Component {
     }
 
     restoreState = () => {
-        api.getTodolists().then(res => {
-            this.props.setTodolists(res.data);
-        });
+        this.props.getTodolists()
     }  // ok
 
 
@@ -90,13 +83,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setTodolists: (todolists) => {
-            const action = setTodolistsAC(todolists);
-            dispatch(action)
+        addTodolist: (title) => {
+            dispatch(addTodolistTC(title))
         },
-        addTodolist: (newTodolist) => {
-            const action = addTodolistAC(newTodolist);
-            dispatch(action)
+        getTodolists: () => {
+            dispatch(getTodolistsTC())
         }
     }
 }

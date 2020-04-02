@@ -32,7 +32,7 @@ class TodoListTask extends React.Component {
         this.props.deleteTask(this.props.task.id);
     }
     render = () => {
-        let containerCssClass = this.props.task.isDone ? "todoList-task done" : "todoList-task";
+        let containerCssClass = this.props.task.status ? "todoList-task done" : "todoList-task";
         let priotityTitle = "";
         switch (this.props.task.priority) {
             case 0: priotityTitle = "Low"; break;
