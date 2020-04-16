@@ -4,6 +4,7 @@ export type TodoType = {
     order: number
     title: string
     tasks:TaskType[]
+
 }
 
 export type TaskType = {
@@ -18,4 +19,11 @@ export type TaskType = {
     todoListId: string
     order: number
     addedDate: string
+    isDone:boolean
+}
+
+export type ObjType = {
+    taskId:string
+    status?:number
+    title?:string
 }

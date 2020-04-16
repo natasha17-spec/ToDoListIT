@@ -1,9 +1,26 @@
 import React from 'react';
 import '../src/App.css';
+import {TaskType} from "./types/entities";
 
-class TodoListFooter extends React.Component {
 
-    state = {
+type StateType = {
+    isHidden:boolean
+
+}
+type OwnPropsType = {
+  changeFilter:(newFilterValue: string) => void
+    filterValue:string
+}
+
+type MapDispatchToPropsType = {
+
+
+
+}
+type PropsType = OwnPropsType & MapDispatchToPropsType
+class TodoListFooter extends React.Component<PropsType>{
+
+    state:StateType = {
         isHidden: false
     };
 

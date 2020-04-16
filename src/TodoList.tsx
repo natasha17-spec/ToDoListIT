@@ -11,11 +11,36 @@ import {
     changeTask,
     deleteTodo, deleteTask, updateTitle
 } from "./reducer";
+import {TaskType, TodoType} from "./types/entities";
 
-class TodoList extends React.Component {
 
-    state = {
+type StateType = {
+    filterValue: string
+
+}
+type OwnPropsType = {
+    id: string
+    title: string
+    tasks: TaskType[]
+}
+
+type MapDispatchToPropsType = {
+    getTasks:(id:string)=>void
+    addTask:(newText:string,id:string)=>void
+    changeTask:(taskId:string,id:string, task:TaskType, obj:any)=>void
+    deleteTodo:(id:string)=>void
+    deleteTask:(taskId:string, id:string)=>void
+    updateTitle:(title:string,id:string)=>void
+
+
+}
+type PropsType = OwnPropsType & MapDispatchToPropsType
+
+class TodoList extends React.Component<PropsType> {
+
+    state: StateType = {
         filterValue: "All"
+
     };
 
     componentDidMount() {
@@ -26,18 +51,18 @@ class TodoList extends React.Component {
         this.props.getTasks(this.props.id)
     };
 
-    addTask = (newText) => {
+    addTask = (newText: string) => {
         this.props.addTask(newText, this.props.id)
     };
 
-    changeFilter = (newFilterValue) => {
+    changeFilter = (newFilterValue: string) => {
         this.setState({
             filterValue: newFilterValue
         });
     };
 
-    changeTask = (taskId, obj) => {
-        let changedTask = this.props.tasks.find(task => {
+    changeTask = (taskId: string, obj: any) => {
+        let changedTask = this.props.tasks.find((task: TaskType) => {
             return task.id === taskId
         });
         let task = {...changedTask, ...obj};
@@ -45,11 +70,11 @@ class TodoList extends React.Component {
         this.props.changeTask(taskId, this.props.id, task, obj);
     };
 
-    changeStatus = (taskId, status) => {
+    changeStatus = (taskId: string, status: number) => {
         this.changeTask(taskId, {status});
     };
 
-    changeTitle = (taskId, title) => {
+    changeTitle = (taskId: string, title: string) => {
         this.changeTask(taskId, {title});
     };
 
@@ -57,11 +82,11 @@ class TodoList extends React.Component {
         this.props.deleteTodo(this.props.id)
     };
 
-    deleteTask = (taskId) => {
+    deleteTask = (taskId: string) => {
         this.props.deleteTask(taskId, this.props.id);
     };
 
-    updateTitle = (title) => {
+    updateTitle = (title: string) => {
         this.props.updateTitle(title, this.props.id)
     };
 
@@ -80,7 +105,7 @@ class TodoList extends React.Component {
                 <TodoListTasks changeStatus={this.changeStatus}
                                changeTitle={this.changeTitle}
                                deleteTask={this.deleteTask}
-                               tasks={tasks.filter(t => {
+                               tasks={tasks.filter((t: TaskType) => {
                                    if (this.state.filterValue === "All") {
                                        return true;
                                    }
@@ -98,5 +123,5 @@ class TodoList extends React.Component {
 }
 
 
-export default connect(null, {getTasks, addTask,  changeTask, deleteTodo,  deleteTask, updateTitle})(TodoList);
+export default connect(null, {getTasks, addTask, changeTask, deleteTodo, deleteTask, updateTitle})(TodoList);
 
