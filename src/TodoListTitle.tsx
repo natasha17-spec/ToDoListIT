@@ -1,6 +1,5 @@
 import React, {ChangeEvent} from 'react';
 import './App.css';
-import {TodoType} from "./types/entities";
 
 
 type StateType = {
@@ -43,12 +42,13 @@ class TodoListTitle extends React.Component<PropsType> {
             <>
                 {
                     this.state.editMode
-                        ? <input value={this.state.title}
+                        ? <input className='todolist_title' value={this.state.title}
                                  autoFocus={true}
                                  onBlur={this.deactivateEditMode}
                                  onChange={this.onTitleChanged}
                         />
-                        : <h3 className="todoList-header__title" onClick={this.activateEditMode}>{this.props.title}</h3>
+                        : <span className="todoList-header__title"
+                              onClick={this.activateEditMode}>{this.props.title}</span>
                 }
             </>
         );

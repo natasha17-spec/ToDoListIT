@@ -10,6 +10,7 @@ type StateType = {
 }
 type OwnPropsType = {
     task: TaskType
+    disabled:boolean
 }
 
 type MapDispatchToPropsType = {
@@ -49,7 +50,7 @@ class TodoListTask extends React.Component<PropsType> {
         this.props.deleteTask(this.props.task.id);
     };
     render = () => {
-        let containerCssClass = this.props.task.isDone ? "todoList-task done" : "todoList-task";
+        let containerCssClass = this.props.task.status ? "todoList-task done" : "todoList-task";
         let priotityTitle = "";
         switch (this.props.task.priority) {
             case 0: priotityTitle = "Low"; break;
@@ -66,7 +67,10 @@ class TodoListTask extends React.Component<PropsType> {
                         ? <input onBlur={this.deactivateEditMode} onChange={this.onTitleChanged} autoFocus={true}
                                  value={this.state.title} />
                         : <span onClick={this.activateEditMode}>{this.props.task.title}</span>
-                    }, priority: {priotityTitle} <button onClick={this.onDeleteTask}>X</button>
+                    }, priority: {priotityTitle}
+                    <div>
+                        <button disabled={this.props.disabled} className='todolist_task_button' onClick={this.onDeleteTask}>Х</button>
+                    </div>
                 </div>
         );
     }

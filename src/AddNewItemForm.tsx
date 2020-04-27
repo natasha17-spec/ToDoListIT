@@ -1,9 +1,19 @@
 import React from 'react';
 import './App.css';
 
-class AddNewItemForm extends React.Component {
+type OwnPropsType= {
+    addItem:(newText)=>void
+    disabled: boolean
+}
 
-    state = {
+type StateType = {
+    error: boolean,
+    title: string
+}
+
+class AddNewItemForm extends React.Component<OwnPropsType> {
+
+    state:StateType = {
         error: false,
         title: ""
     };
@@ -35,7 +45,7 @@ class AddNewItemForm extends React.Component {
     };
 
     render = () => {
-        let classNameForInput = this.state.error ? "error" : "";
+        let classNameForInput = this.state.error ? "error" : "todolist_addNewTitle";
 
         return (
             <div className="todoList-newTaskForm">
@@ -46,7 +56,7 @@ class AddNewItemForm extends React.Component {
                        onKeyPress={this.onKeyPress}
                        value={this.state.title}
                 />
-                <button onClick={this.onAddItemClick}>Add</button>
+                <button disabled={this.props.disabled} className='todolist_newItem_button' onClick={this.onAddItemClick}>Add</button>
             </div>
 
         );

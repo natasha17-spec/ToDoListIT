@@ -1,6 +1,5 @@
 import React from 'react';
 import '../src/App.css';
-import {TaskType} from "./types/entities";
 
 
 type StateType = {
@@ -32,13 +31,13 @@ class TodoListFooter extends React.Component<PropsType>{
 
     render = () => {
 
-        let classForAll = this.props.filterValue === "All" ? "filter-active" : "";
-        let classForCompleted = this.props.filterValue === "Completed" ? "filter-active" : "";
-        let classForActive = this.props.filterValue === "Active" ? "filter-active" : "";
+        let classForAll = this.props.filterValue === "All" ? "filter-active" : "todoList-footer_button";
+        let classForCompleted = this.props.filterValue === "Completed" ? "filter-active" : "todoList-footer_button";
+        let classForActive = this.props.filterValue === "Active" ? "filter-active" : "todoList-footer_button";
 
         return (
             <div className="todoList-footer">
-                { !this.state.isHidden && <div>
+                { !this.state.isHidden && <div className='container_footer'>
                      <button onClick={ this.onAllFilterClick } className={classForAll}>All</button>
                      <button onClick={ this.onCompletedFilterClick } className={classForCompleted}>Completed</button>
                      <button onClick={ this.onActiveFilterClick } className={classForActive}>Active</button>

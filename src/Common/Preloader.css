@@ -1,0 +1,6 @@
+.preloader {
+    width: 700px;
+    display: flex;
+    justify-content: flex-end;
+    height: 500px;
+}

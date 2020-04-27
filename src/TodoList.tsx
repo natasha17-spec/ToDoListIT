@@ -12,29 +12,34 @@ import {
     deleteTodo, deleteTask, updateTitle
 } from "./reducer";
 import {TaskType, TodoType} from "./types/entities";
+import {AppStateType} from "./store";
 
 
 type StateType = {
     filterValue: string
-
 }
 type OwnPropsType = {
     id: string
     title: string
     tasks: TaskType[]
+
+}
+type MapStateToPropsType = {
+    disabled: boolean,
+    todolists: TodoType[]
 }
 
 type MapDispatchToPropsType = {
-    getTasks:(id:string)=>void
-    addTask:(newText:string,id:string)=>void
-    changeTask:(taskId:string,id:string, task:TaskType, obj:any)=>void
-    deleteTodo:(id:string)=>void
-    deleteTask:(taskId:string, id:string)=>void
-    updateTitle:(title:string,id:string)=>void
+    getTasks: (id: string) => void
+    addTask: (newText: string, id: string) => void
+    changeTask: (taskId: string, id: string, task: TaskType, obj: any) => void
+    deleteTodo: (id: string) => void
+    deleteTask: (taskId: string, id: string) => void
+    updateTitle: (title: string, id: string) => void
 
 
 }
-type PropsType = OwnPropsType & MapDispatchToPropsType
+type PropsType = OwnPropsType & MapDispatchToPropsType & MapStateToPropsType
 
 class TodoList extends React.Component<PropsType> {
 
@@ -97,31 +102,40 @@ class TodoList extends React.Component<PropsType> {
                 <div className="todoList-header">
                     <div className="wrapper">
                         <TodoListTitle title={this.props.title} updateTitle={this.updateTitle}/>
-                        <button onClick={this.deleteTodolist}>X</button>
+                        <button className='todolist_delete_button' onClick={this.deleteTodolist}>X</button>
                     </div>
-                    <AddNewItemForm addItem={this.addTask}/>
+                    <AddNewItemForm disabled={this.props.disabled} addItem={this.addTask}/>
                 </div>
 
-                <TodoListTasks changeStatus={this.changeStatus}
-                               changeTitle={this.changeTitle}
-                               deleteTask={this.deleteTask}
-                               tasks={tasks.filter((t: TaskType) => {
-                                   if (this.state.filterValue === "All") {
-                                       return true;
-                                   }
-                                   if (this.state.filterValue === "Active") {
-                                       return t.status === 0;
-                                   }
-                                   if (this.state.filterValue === "Completed") {
-                                       return t.status === 2;
-                                   }
-                               })}/>
+                <TodoListTasks
+                    disabled={this.props.disabled}
+                    changeStatus={this.changeStatus}
+                    changeTitle={this.changeTitle}
+                    deleteTask={this.deleteTask}
+                    tasks={tasks.filter((t: TaskType) => {
+                        if (this.state.filterValue === "All") {
+                            return true;
+                        }
+                        if (this.state.filterValue === "Active") {
+                            return t.status === 0;
+                        }
+                        if (this.state.filterValue === "Completed") {
+                            return t.status === 2;
+                        }
+                    })}/>
                 <TodoListFooter changeFilter={this.changeFilter} filterValue={this.state.filterValue}/>
             </div>
         );
     }
 }
 
+const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
+    return {
+        todolists: state.todolist.todolists,
+        disabled: state.todolist.disabled
+    }
+};
 
-export default connect(null, {getTasks, addTask, changeTask, deleteTodo, deleteTask, updateTitle})(TodoList);
+
+export default connect(mapStateToProps, {getTasks, addTask, changeTask, deleteTodo, deleteTask, updateTitle})(TodoList);
 
