@@ -1,4 +1,4 @@
-import photo from "../Icons/Bean Eater-1s-200px.svg";
+import photo from "../Icons/Preloader.svg";
 import React from 'react';
 import "./Preloader.css"
 
