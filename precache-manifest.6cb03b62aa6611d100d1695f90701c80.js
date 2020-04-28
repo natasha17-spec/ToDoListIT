@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "39dfa4248f78831f1ac96240257f73ee",
+    "revision": "074ee7da6f2bb1bb44ae6487bcda3220",
     "url": "/ToDoListIT/index.html"
   },
   {
-    "revision": "b0c13a2c092b4e75e087",
-    "url": "/ToDoListIT/static/css/main.e0746b25.chunk.css"
+    "revision": "d94e96a73db4db1daecd",
+    "url": "/ToDoListIT/static/css/main.86311354.chunk.css"
   },
   {
     "revision": "5ae5a40e0d4525d3cd62",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ToDoListIT/static/js/2.7db00c3d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b0c13a2c092b4e75e087",
-    "url": "/ToDoListIT/static/js/main.20379675.chunk.js"
+    "revision": "d94e96a73db4db1daecd",
+    "url": "/ToDoListIT/static/js/main.c7e291de.chunk.js"
   },
   {
     "revision": "21254de34198e65c4a4b",
@@ -25,7 +25,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   },
   {
     "revision": "28ba06a81506c9b81c79102701f89894",
-    "url": "/ToDoListIT/static/media/Bean Eater-1s-200px.28ba06a8.svg"
+    "url": "/ToDoListIT/static/media/Preloader.28ba06a8.svg"
   },
   {
     "revision": "5dd1c945782e35ee7fc5acb6f5856248",
