@@ -8,11 +8,6 @@ import {TodoType} from "./Types/entities";
 import {AppStateType} from "./BLL/store";
 import Preloader from "./Common/Preloader";
 
-type OwnPropsType = {
-    id: string
-    isFetching: boolean
-}
-
 
 type MapStateToPropsType = {
     todolists: TodoType[],
@@ -23,7 +18,7 @@ type MapDispatchToPropsType = {
     getTodolists: () => void
     addTodolist: (title: string) => void
 }
-type PropsType = OwnPropsType & MapStateToPropsType & MapDispatchToPropsType
+type PropsType =  MapStateToPropsType & MapDispatchToPropsType
 
 class App extends React.Component<PropsType> {
 
