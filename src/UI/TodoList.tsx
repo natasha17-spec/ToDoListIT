@@ -1,18 +1,13 @@
 import React from 'react';
-import './App.css';
-import TodoListTasks from "./TodoListTasks";
-import TodoListFooter from "./TodoListFooter";
+import '../App.css';
+import {connect} from "react-redux";
 import TodoListTitle from "./TodoListTitle";
 import AddNewItemForm from "./AddNewItemForm";
-import {connect} from "react-redux";
-import {
-    addTask,
-    getTasks,
-    changeTask,
-    deleteTodo, deleteTask, updateTitle
-} from "./reducer";
-import {TaskType, TodoType} from "./types/entities";
-import {AppStateType} from "./store";
+import TodoListTasks from "./TodoListTasks";
+import TodoListFooter from "./TodoListFooter";
+import {addTask, changeTask, deleteTask, deleteTodo, getTasks, updateTitle} from "../BLL/reducer";
+import {TaskType, TodoType} from "../Types/entities";
+import {AppStateType} from "../BLL/store";
 
 
 type StateType = {
@@ -135,6 +130,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
         disabled: state.todolist.disabled
     }
 };
+
 
 
 export default connect(mapStateToProps, {getTasks, addTask, changeTask, deleteTodo, deleteTask, updateTitle})(TodoList);

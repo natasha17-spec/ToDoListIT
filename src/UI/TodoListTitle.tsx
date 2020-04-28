@@ -1,5 +1,5 @@
 import React, {ChangeEvent} from 'react';
-import './App.css';
+import '../App.css';
 
 
 type StateType = {

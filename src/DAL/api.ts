@@ -1,5 +1,5 @@
 import axios from "axios";
-import {TaskType, TodoType} from "./types/entities";
+import {TaskType, TodoType} from "../Types/entities";
 
 
 type CommonResponseType<value> = {

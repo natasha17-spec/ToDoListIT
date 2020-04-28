@@ -1,5 +1,5 @@
 import React from 'react';
-import '../src/App.css';
+import '../App.css';
 
 
 type StateType = {
@@ -11,13 +11,7 @@ type OwnPropsType = {
     filterValue:string
 }
 
-type MapDispatchToPropsType = {
-
-
-
-}
-type PropsType = OwnPropsType & MapDispatchToPropsType
-class TodoListFooter extends React.Component<PropsType>{
+class TodoListFooter extends React.Component<OwnPropsType>{
 
     state:StateType = {
         isHidden: false

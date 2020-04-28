@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import TodoList from "./TodoList";
-import AddNewItemForm from "./AddNewItemForm";
+import TodoList from "./UI/TodoList";
+import AddNewItemForm from "./UI/AddNewItemForm";
 import {connect} from "react-redux";
-import {addTodolist, getTodolists} from "./reducer";
-import {TodoType} from "./types/entities";
-import {AppStateType} from "./store";
+import {addTodolist, getTodolists} from "./BLL/reducer";
+import {TodoType} from "./Types/entities";
+import {AppStateType} from "./BLL/store";
 import Preloader from "./Common/Preloader";
 
 type OwnPropsType = {

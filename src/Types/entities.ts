@@ -22,8 +22,3 @@ export type TaskType = {
     isDone:boolean
 }
 
-export type ObjType = {
-    taskId:string
-    status?:number
-    title?:string
-}

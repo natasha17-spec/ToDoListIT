@@ -1,6 +1,7 @@
 import React, {ChangeEvent} from 'react';
-import './App.css';
-import {TaskType} from "./types/entities";
+import '../App.css';
+import {TaskType} from "../Types/entities";
+
 
 
 type StateType = {
